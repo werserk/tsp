@@ -76,7 +76,9 @@ choose max lower_bound
 - легко реализовать;
 - может поднять lower bound.
 
-### 3. Multi-start NN → 2-opt
+### 3. Multi-start NN → 2-opt — выполнено
+
+Результат: `77771`, artifact `results/best/step8-multistart-two-opt.json`, заметка `notes/10-step8-multistart-two-opt.md`.
 
 Цель: усилить собственный upper bound без external solver.
 
@@ -95,7 +97,7 @@ choose best
 - полностью наш код;
 - хороший backup, если LKH сложно поставить или объяснить.
 
-Риск: может быть медленно.
+Риск: текущая полная схема `1114` стартов слишком медленная; Step 8 использовал NN-ranking по stride-16 кандидатам и 2-opt только на top-4 starts. Метод улучшил старый собственный `80585 → 77771`, но не побил LKH `73934`.
 
 ### 4. Held-Karp-style 1-tree penalties
 

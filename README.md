@@ -43,6 +43,7 @@ references/
 - `notes/07-next-experiments-plan.md` — prioritized SOTA/baseline experiment plan.
 - `notes/08-step6-lkh-benchmark.md` — LKH benchmark, new best upper bound `73934`.
 - `notes/09-step7-several-root-one-tree.md` — sampled several-root 1-tree lower bound, new lower bound `63494`.
+- `notes/10-step8-multistart-two-opt.md` — own NN-ranked multi-start 2-opt check, length `77771`.
 
 ## Текущие bounds
 
@@ -65,4 +66,5 @@ lower: results/best/step7-several-root-one-tree.json
 
 1. Запустить LKH с несколькими seeds / RUNS для усиления upper bound.
 2. Или усилить lower bound дальше: Held-Karp-style 1-tree penalties.
-3. Каждый новый best сохранять в `results/best/` и пересчитывать/обосновывать независимо.
+3. Не тратить много времени на текущий pure-Python 2-opt full multi-start: один старт занимает около минуты, а bounded Step 8 не побил LKH.
+4. Каждый новый best сохранять в `results/best/` и пересчитывать/обосновывать независимо.

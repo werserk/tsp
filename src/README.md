@@ -9,6 +9,7 @@ bounds/mst.py                  # deterministic Prim MST lower-bound utility
 bounds/one_tree.py             # fixed-root and several-root 1-tree lower-bound utilities
 heuristics/nearest_neighbor.py  # deterministic nearest-neighbor upper-bound baseline
 heuristics/two_opt.py           # deterministic 2-opt local search improvement
+heuristics/multistart_two_opt.py # NN-ranked multi-start 2-opt upper-bound check
 io/tsplib.py                    # TSPLIB FULL_MATRIX export and TOUR_SECTION parser
 io/exceptions.py                # parse/validation exception classes
 io/matrix_loader.py             # format detection and matrix loading
