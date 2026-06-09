@@ -1,0 +1,6 @@
+PROBLEM_FILE = data/processed/lkh/challenge-1114-full-matrix.tsp
+OUTPUT_TOUR_FILE = data/processed/lkh/challenge-1114.lkh.tour
+RUNS = 10
+MAX_TRIALS = 10000
+SEED = 7
+TRACE_LEVEL = 1
