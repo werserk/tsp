@@ -5,12 +5,13 @@
 ## Current modules
 
 ```txt
-io/exceptions.py      # parse/validation exception classes
-io/matrix_loader.py   # format detection and matrix loading
-io/validation.py      # matrix and tour validation contracts
-tsp/constants.py      # canonical paths, sizes, and format names
-tsp/tour.py           # independent tour length calculation
-tsp/types.py          # shared City/Distance/Matrix/Tour aliases
+heuristics/nearest_neighbor.py  # deterministic nearest-neighbor upper-bound baseline
+io/exceptions.py                # parse/validation exception classes
+io/matrix_loader.py             # format detection and matrix loading
+io/validation.py                # matrix and tour validation contracts
+tsp/constants.py                # canonical paths, sizes, and format names
+tsp/tour.py                     # independent tour length calculation
+tsp/types.py                    # shared City/Distance/Matrix/Tour aliases
 ```
 
 Tour contract: a tour is a permutation of `0..n-1`; the return edge to the first city is implicit.

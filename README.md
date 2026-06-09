@@ -37,9 +37,19 @@ references/
 - `notes/01-tsp-basics-and-development-plan.md` — базовое объяснение TSP, upper/lower bounds и первый план разработки.
 - `notes/02-step1-data-audit.md` — аудит входных матриц: формат, размерность, симметрия, диапазоны, ограничения.
 - `notes/03-step2-core-infrastructure.md` — загрузчик матриц, валидация tour, пересчёт длины, smoke checks.
+- `notes/04-step3-nearest-neighbor-baseline.md` — первый валидный upper bound: nearest-neighbor multi-start, length `88839`.
+
+## Текущий лучший upper bound
+
+```txt
+algorithm: nearest_neighbor_multi_start
+length: 88839
+start_city: 219
+artifact: results/best/step3-nearest-neighbor-best.json
+```
 
 ## Следующий шаг
 
-1. Сделать первый baseline upper bound: nearest neighbor из нескольких стартов.
+1. Улучшить upper bound через 2-opt local search от текущего best tour.
 2. Проверить tour через `validate_tour` и пересчитать длину через `tour_length`.
-3. Сохранить лучший результат в `results/best/`.
+3. Сохранить новый лучший результат в `results/best/`.
