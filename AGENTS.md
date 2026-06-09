@@ -19,6 +19,8 @@ Short instructions for coding agents working on this TSP project.
 - `notes/11-step9-held-karp-one-tree.md` — Held-Karp-style 1-tree penalties; current best lower bound `65493.437369`.
 - `notes/12-step10-restricted-three-opt.md` — restricted 3-opt/LK-like local search check; no improvement over LKH.
 - `notes/13-step11-lkh-multiseed.md` — LKH multi-seed upper-bound search; seeds `1-20` did not improve `73934`.
+- `notes/14-step12-lkh-portfolio-plan.md` — bounded LKH portfolio runner implementation plan.
+- `notes/14-step12-lkh-portfolio.md` — Step 12 smoke portfolio report; use `experiments/step12_lkh_portfolio.py` for ETA/progress/resume waves.
 - `data/raw/matrices/README.md` — observed matrix formats and canonical challenge size.
 - `references/lecturer-code/` — lecturer-provided Python examples; read as reference, do not edit in place.
 

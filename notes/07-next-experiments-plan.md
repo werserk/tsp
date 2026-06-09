@@ -140,6 +140,12 @@ choose best
 
 Вывод: простая смена seed уже не даёт лёгкого upper-bound gain. Следующий upper-bound шаг должен быть более тяжёлой LKH tuning wave, а не ещё одним идентичным seed sweep.
 
+### 7. Bounded LKH portfolio runner — infrastructure ready
+
+Результат: реализован `experiments/step12_lkh_portfolio.py` с ETA, JSONL progress ledger, resume/force, time budget, job timeout, calibration, Markdown/HTML reports. Smoke run `A_default_r3 × seed=1` подтвердил pipeline и не улучшил `73934`; artifacts `results/runs/step12-lkh-portfolio.*`, заметка `notes/14-step12-lkh-portfolio.md`.
+
+Следующий quality-first запуск: bounded portfolio wave `--seeds 1-20 --time-budget-hours 2 --job-timeout-minutes 20 --force`.
+
 ## Рекомендованный порядок
 
 ```txt
@@ -149,7 +155,8 @@ choose best
 4. Held-Karp 1-tree penalties — выполнено
 5. 3-opt / LK-like local search — выполнено, no improvement
 6. LKH multi-seed search — выполнено, no improvement
-7. Optional: heavier LKH tuning wave or lower-bound tuning
+7. Bounded LKH portfolio runner — infrastructure ready
+8. Next: run 1-2h quality-first portfolio wave
 ```
 
 ## Критерий успеха

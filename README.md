@@ -47,6 +47,8 @@ references/
 - `notes/11-step9-held-karp-one-tree.md` — Held-Karp-style Lagrangian 1-tree penalties, new lower bound `65493.437369`.
 - `notes/12-step10-restricted-three-opt.md` — restricted 3-opt/LK-like check on LKH tour; no improvement over `73934`.
 - `notes/13-step11-lkh-multiseed.md` — LKH seeds `1-20`, `RUNS=1`; no improvement over `73934`.
+- `notes/14-step12-lkh-portfolio-plan.md` — bounded LKH portfolio runner plan with ETA/progress/resume.
+- `notes/14-step12-lkh-portfolio.md` — Step 12 smoke portfolio report; runner ready for longer quality-first waves.
 
 ## Текущие bounds
 
@@ -68,7 +70,7 @@ lower: results/best/step9-held-karp-one-tree.json
 
 ## Следующий шаг
 
-1. Запустить LKH с несколькими seeds / RUNS для усиления upper bound.
-2. Если останется время — донастроить Held-Karp step schedule / root выбор для lower bound.
-3. Не тратить много времени на текущий pure-Python 2-opt full multi-start: один старт занимает около минуты, а bounded Step 8 не побил LKH.
+1. Запустить bounded Step 12 LKH portfolio wave через `experiments/step12_lkh_portfolio.py` с `--time-budget-hours` и `--job-timeout-minutes`.
+2. Если portfolio найдёт `< 73934`, сохранить новый verified best в `results/best/step12-lkh-portfolio-best.json` и обновить interval.
+3. Если improvement нет, выбрать 1-2 лучших configs по `results/runs/step12-lkh-portfolio-report.html` для targeted long wave или переключиться на финальное объяснение.
 4. Каждый новый best сохранять в `results/best/` и пересчитывать/обосновывать независимо.

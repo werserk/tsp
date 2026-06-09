@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Step 12 LKH portfolio report</title>
+<style>
+body { font-family: system-ui, sans-serif; margin: 32px; background: #f8fafc; color: #111827; }
+.card { display: inline-block; padding: 14px 18px; margin: 0 12px 12px 0; background: #fff; border: 1px solid #d1d5db; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0 28px; background: #fff; }
+th, td { border: 1px solid #d1d5db; padding: 6px 8px; text-align: left; font-size: 13px; }
+th { background: #e5e7eb; }
+code { background: #e5e7eb; padding: 2px 4px; }
+</style>
+</head>
+<body>
+<h1>Step 12 — LKH portfolio report</h1>
+<div class="card"><strong>Best</strong><br>73934</div>
+<div class="card"><strong>Improved</strong><br>False</div>
+<div class="card"><strong>Completed</strong><br>1</div>
+<div class="card"><strong>Failed/timeout</strong><br>0 / 0</div>
+<p><strong>Command:</strong> <code>python experiments/step12_lkh_portfolio.py --configs A_default_r3 --seeds 1 --time-budget-hours 1 --job-timeout-minutes 20 --force</code></p>
+<h2>Config × seed results</h2>
+<table><thead><tr><th>job</th><th>config</th><th>seed</th><th>status</th><th>verified length</th><th>runtime s</th></tr></thead><tbody>
+<tr><td>A_default_r3__seed_1</td><td>A_default_r3</td><td>1</td><td>done</td><td>73934</td><td>79.819</td></tr>
+</tbody></table>
+<h2>Length distribution</h2>
+<table><thead><tr><th>length</th><th>count</th></tr></thead><tbody>
+<tr><td>73934</td><td>1</td></tr>
+</tbody></table>
+<h2>Runtime by config</h2>
+<table><thead><tr><th>config</th><th>count</th><th>avg s</th><th>min s</th><th>max s</th></tr></thead><tbody>
+<tr><td>A_default_r3</td><td>1</td><td>79.819</td><td>79.819</td><td>79.819</td></tr>
+</tbody></table>
+</body></html>
