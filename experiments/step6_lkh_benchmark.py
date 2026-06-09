@@ -1,145 +1,129 @@
 #!/usr/bin/env python3
-"""Step 6: run LKH on the challenge instance and verify the returned tour."""
+"""Step 6: run LKH on the exported challenge matrix and verify the tour."""
 
 from __future__ import annotations
 
 import json
-import shutil
 import subprocess
 import sys
+from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from src.integrations.lkh import (
-    LKH_ALGORITHM,
-    LKHResult,
-    export_tsplib_full_matrix,
-    parse_lkh_tour,
-    save_lkh_result,
-    write_lkh_parameter_file,
-)
 from src.io.matrix_loader import load_matrix
+from src.io.tsplib import parse_tsplib_tour, write_explicit_tsplib
+from src.io.validation import validate_tour
 from src.tsp.constants import CHALLENGE_MATRIX_PATH
 from src.tsp.tour import tour_length
 
-TSPLIB_PATH = Path("data/processed/lkh/challenge-1114-full-matrix.tsp")
-PARAMETER_PATH = Path("data/processed/lkh/challenge-1114.par")
-LKH_TOUR_PATH = Path("data/processed/lkh/challenge-1114.lkh.tour")
+LKH_BINARY = Path("tools/LKH-2.0.11/LKH")
+TSPLIB_PATH = Path("data/processed/challenge-full-matrix.tsp")
+PARAMETER_PATH = Path("data/processed/lkh-step6.par")
+LKH_TOUR_PATH = Path("data/processed/lkh-step6-output.tour")
 OUTPUT_PATH = Path("results/best/step6-lkh-best.json")
 PREVIOUS_UPPER_ARTIFACT = Path("results/best/step4-two-opt-best.json")
-LOWER_BOUND_ARTIFACT = Path("results/best/step5-lower-bound-baseline.json")
 COMMAND = "python experiments/step6_lkh_benchmark.py"
-RUNS = 10
-MAX_TRIALS = 10000
-SEED = 7
-LKH_TIMEOUT_SECONDS = 540
+TSPLIB_NAME = "tsp_1114_challenge"
+SEED = 1
+RUNS = 1
+TRACE_LEVEL = 1
 
 
 def main() -> None:
-    lkh_binary = _find_lkh_binary()
     data = load_matrix(ROOT / CHALLENGE_MATRIX_PATH)
-    previous_upper_bound = _read_int_field(ROOT / PREVIOUS_UPPER_ARTIFACT, "length")
-    lower_bound = _read_int_field(ROOT / LOWER_BOUND_ARTIFACT, "lower_bound")
+    previous_upper = _load_previous_upper_bound(ROOT / PREVIOUS_UPPER_ARTIFACT)
+    _ensure_lkh_binary(ROOT / LKH_BINARY)
+    write_explicit_tsplib(data.matrix, ROOT / TSPLIB_PATH, name=TSPLIB_NAME)
+    _write_parameter_file(ROOT / PARAMETER_PATH)
 
-    tsplib_path = ROOT / TSPLIB_PATH
-    parameter_path = ROOT / PARAMETER_PATH
-    lkh_tour_path = ROOT / LKH_TOUR_PATH
-
-    export_tsplib_full_matrix(
-        data.matrix,
-        output_path=tsplib_path,
-        name="challenge_1114_full_matrix",
-    )
-    write_lkh_parameter_file(
-        parameter_path=parameter_path,
-        problem_file=TSPLIB_PATH,
-        output_tour_file=LKH_TOUR_PATH,
-        runs=RUNS,
-        max_trials=MAX_TRIALS,
-        seed=SEED,
+    completed = subprocess.run(
+        [str(ROOT / LKH_BINARY), str(ROOT / PARAMETER_PATH)],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=True,
     )
 
-    log_path = ROOT / "results/runs/step6-lkh-run.log"
-    log_path.parent.mkdir(parents=True, exist_ok=True)
-    timed_out = False
-    try:
-        completed = subprocess.run(
-            [str(lkh_binary), str(parameter_path)],
-            check=True,
-            cwd=ROOT,
-            text=True,
-            capture_output=True,
-            timeout=LKH_TIMEOUT_SECONDS,
-        )
-        log_path.write_text(completed.stdout + completed.stderr, encoding="utf-8")
-    except subprocess.TimeoutExpired as exc:
-        timed_out = True
-        stdout = exc.stdout or ""
-        stderr = exc.stderr or ""
-        if isinstance(stdout, bytes):
-            stdout = stdout.decode("utf-8", "ignore")
-        if isinstance(stderr, bytes):
-            stderr = stderr.decode("utf-8", "ignore")
-        log_path.write_text(stdout + stderr + "\n[LKH timed out; parsing best tour file if present]\n", encoding="utf-8")
-        if not lkh_tour_path.exists():
-            raise
-
-    tour = parse_lkh_tour(lkh_tour_path)
+    tour = parse_tsplib_tour(ROOT / LKH_TOUR_PATH)
+    validate_tour(tour, data.n)
     length = tour_length(data.matrix, tour, validate=True)
-    result = LKHResult(
-        algorithm=LKH_ALGORITHM,
-        tour=tour,
-        length=length,
-        metadata={
-            "runs": RUNS,
-            "max_trials": MAX_TRIALS,
-            "seed": SEED,
-            "timeout_seconds": LKH_TIMEOUT_SECONDS,
-            "timed_out": timed_out,
-            "parameter_file": str(PARAMETER_PATH),
-            "tsplib_file": str(TSPLIB_PATH),
-            "lkh_tour_file": str(LKH_TOUR_PATH),
-            "log_file": "results/runs/step6-lkh-run.log",
-        },
-    )
-    save_lkh_result(
-        result,
-        output_path=ROOT / OUTPUT_PATH,
-        input_file=CHALLENGE_MATRIX_PATH,
+    if length >= previous_upper:
+        raise AssertionError(f"LKH did not improve upper bound: {length} >= {previous_upper}")
+
+    payload = _payload(
         n=data.n,
-        previous_upper_bound=previous_upper_bound,
-        lower_bound=lower_bound,
-        command=COMMAND,
-        lkh_binary=lkh_binary,
+        length=length,
+        tour=tour,
+        previous_upper=previous_upper,
+        lkh_output=completed.stdout,
+    )
+    (ROOT / OUTPUT_PATH).parent.mkdir(parents=True, exist_ok=True)
+    (ROOT / OUTPUT_PATH).write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
     )
 
-    print(f"algorithm={result.algorithm}")
+    print(f"algorithm={payload['algorithm']}")
+    print(f"input={CHALLENGE_MATRIX_PATH}")
     print(f"n={data.n}")
-    print(f"length={result.length}")
-    print(f"previous_upper_bound={previous_upper_bound}")
-    print(f"improvement_vs_previous_upper={previous_upper_bound - result.length}")
-    print(f"timed_out={timed_out}")
-    print(f"lower_bound={lower_bound}")
-    print(f"absolute_gap={result.length - lower_bound}")
-    print(f"relative_gap={(result.length - lower_bound) / result.length:.6f}")
+    print(f"previous_upper_bound={previous_upper}")
+    print(f"best_length={length}")
+    print(f"improvement={previous_upper - length}")
+    print(f"seed={SEED}")
+    print(f"runs={RUNS}")
     print(f"output={OUTPUT_PATH}")
 
 
-def _find_lkh_binary() -> Path:
-    for candidate in [ROOT / "tools/LKH-2.0.11/LKH", ROOT / "tools/LKH/LKH", Path("LKH")]:
-        if candidate.is_file():
-            return candidate
-    found = shutil.which("LKH") or shutil.which("lkh")
-    if found:
-        return Path(found)
-    raise FileNotFoundError("LKH binary not found; expected tools/LKH-2.0.11/LKH or LKH in PATH")
+def _write_parameter_file(path: Path) -> None:
+    path.write_text(
+        "\n".join(
+            [
+                f"PROBLEM_FILE = {TSPLIB_PATH}",
+                f"OUTPUT_TOUR_FILE = {LKH_TOUR_PATH}",
+                f"RUNS = {RUNS}",
+                f"SEED = {SEED}",
+                f"TRACE_LEVEL = {TRACE_LEVEL}",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
 
 
-def _read_int_field(path: Path, field: str) -> int:
-    return int(json.loads(path.read_text(encoding="utf-8"))[field])
+def _payload(*, n: int, length: int, tour: list[int], previous_upper: int, lkh_output: str) -> dict[str, Any]:
+    return {
+        "algorithm": "lkh_2_0_11",
+        "input_file": str(CHALLENGE_MATRIX_PATH),
+        "tsplib_file": str(TSPLIB_PATH),
+        "n": n,
+        "length": length,
+        "tour": tour,
+        "previous_upper_bound": previous_upper,
+        "improvement": previous_upper - length,
+        "seed": SEED,
+        "runs": RUNS,
+        "lkh_binary": str(LKH_BINARY),
+        "lkh_tour_file": str(LKH_TOUR_PATH),
+        "command": COMMAND,
+        "created_at": datetime.now(UTC).isoformat(),
+        "lkh_stdout_tail": "\n".join(lkh_output.strip().splitlines()[-20:]),
+    }
+
+
+def _load_previous_upper_bound(path: Path) -> int:
+    return int(json.loads(path.read_text(encoding="utf-8"))["length"])
+
+
+def _ensure_lkh_binary(path: Path) -> None:
+    if not path.exists():
+        raise FileNotFoundError(
+            f"LKH binary not found: {path}. Build it under tools/LKH-2.0.11/LKH first."
+        )
 
 
 if __name__ == "__main__":

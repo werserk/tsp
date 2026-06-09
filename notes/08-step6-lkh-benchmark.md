@@ -4,16 +4,16 @@
 
 ## Вывод
 
-LKH дал новый лучший **upper bound**:
+LKH 2.0.11 резко улучшил upper bound:
 
 ```txt
 previous upper_bound = 80585
 new upper_bound = 73934
 improvement = 6651
-algorithm = lkh_lin_kernighan_helsgaun
+improvement_vs_step4 = 8.25%
 ```
 
-С учётом Step 5 lower bound:
+С учётом текущего lower bound:
 
 ```txt
 62838 <= OPT <= 73934
@@ -27,115 +27,117 @@ relative_gap = 15.01%
 results/best/step6-lkh-best.json
 ```
 
-## Что было сделано
+## Что запускалось
 
-Pipeline:
+Prerequisite export:
 
-```txt
-M.txt → TSPLIB FULL_MATRIX export → LKH run → parse TOUR_SECTION → validate_tour → tour_length → save artifact
+```bash
+python experiments/step6_export_tsplib.py
 ```
 
-Файлы:
-
-```txt
-src/integrations/lkh.py
-experiments/step6_export_tsplib.py
-experiments/step6_lkh_benchmark.py
-tests/test_step6_lkh_integration.py
-results/best/step6-lkh-best.json
-data/processed/lkh/challenge-1114-full-matrix.tsp
-data/processed/lkh/challenge-1114.par
-data/processed/lkh/challenge-1114.lkh.tour
-```
-
-## LKH setup
-
-Официальный архив:
-
-```txt
-http://webhotel4.ruc.dk/~keld/research/LKH/LKH-2.0.11.tgz
-```
-
-Локально собран в:
-
-```txt
-tools/LKH-2.0.11/LKH
-```
-
-`tools/` игнорируется git, потому что это внешний build artifact.
-
-## Run parameters
-
-```txt
-RUNS = 10
-MAX_TRIALS = 10000
-SEED = 7
-```
-
-Команда:
+Benchmark:
 
 ```bash
 python experiments/step6_lkh_benchmark.py
 ```
 
-Важно: внешний agent command timed out after 600s, но LKH успел записать tour file:
+LKH binary:
 
 ```txt
-data/processed/lkh/challenge-1114.lkh.tour
+tools/LKH-2.0.11/LKH
 ```
 
-Этот tour был независимо распарсен и пересчитан нашим кодом.
+`tools/` не коммитится; локально LKH был скачан с official Keld Helsgaun LKH page и собран через `make`.
 
-## Проверка результата
-
-Parsed tour:
+## Pipeline
 
 ```txt
-tour_len = 1114
-unique_tour_len = 1114
-length = 73934
+M.txt
+→ data/processed/challenge-full-matrix.tsp
+→ LKH parameter file
+→ data/processed/lkh-step6-output.tour
+→ parse TSPLIB TOUR_SECTION
+→ validate_tour
+→ tour_length(validate=True)
+→ results/best/step6-lkh-best.json
 ```
 
-Независимая проверка:
+Важно: LKH не является источником истины для длины tour. Финальная длина `73934` пересчитана нашим независимым `tour_length` по исходной матрице.
 
-```python
-tour = parse_lkh_tour("data/processed/lkh/challenge-1114.lkh.tour")
-validate_tour(tour, 1114)
-length = tour_length(matrix, tour, validate=True)
-```
-
-LKH tour file также содержит:
+## LKH parameters
 
 ```txt
-COMMENT : Length = 73934
+PROBLEM_FILE = data/processed/challenge-full-matrix.tsp
+OUTPUT_TOUR_FILE = data/processed/lkh-step6-output.tour
+RUNS = 1
+SEED = 1
+TRACE_LEVEL = 1
 ```
 
-Наша проверка подтвердила ту же длину.
-
-## Почему это defensible upper bound
-
-Upper bound требует только предъявить корректный tour и его длину.
-
-Для LKH результата:
-
-1. tour посещает все `1114` городов ровно один раз;
-2. возврат в старт учитывается `tour_length`;
-3. длина пересчитана по исходной матрице `M.txt`, а не взята на веру из LKH output.
-
-Следовательно:
+TSPLIB export format:
 
 ```txt
-OPT <= 73934
+TYPE: TSP
+EDGE_WEIGHT_TYPE: EXPLICIT
+EDGE_WEIGHT_FORMAT: FULL_MATRIX
+DIMENSION: 1114
 ```
 
-## Ограничения
+## Проверка artifact
 
-- LKH — внешний эвристический solver, не доказательство optimum.
-- Текущий run был interrupted by outer timeout, поэтому metadata помечает `timed_out = true`.
-- Несмотря на timeout, tour artifact завершён и валиден как upper bound.
+```txt
+algorithm lkh_2_0_11
+n 1114
+length 73934
+previous_upper_bound 80585
+improvement 6651
+seed 1
+runs 1
+tour_len 1114
+unique 1114
+```
+
+## Реализованные файлы
+
+```txt
+src/io/tsplib.py
+experiments/step6_export_tsplib.py
+experiments/step6_lkh_benchmark.py
+tests/test_step6_tsplib_io.py
+results/best/step6-lkh-best.json
+```
+
+Generated / ignored files:
+
+```txt
+data/processed/challenge-full-matrix.tsp
+data/processed/lkh-step6.par
+data/processed/lkh-step6-output.tour
+tools/LKH-2.0.11/
+```
+
+## Практическое значение
+
+LKH стал новым главным upper-bound источником:
+
+```txt
+best lower bound: 62838
+best upper bound: 73934
+```
+
+Это лучше нашей собственной 2-opt траектории на `6651`.
+
+Для защиты можно объяснять так:
+
+1. Мы реализовали baseline и verifier сами.
+2. Затем подключили стандартную сильную эвристику LKH.
+3. Результат LKH не принят на веру: tour валидирован и пересчитан нашим кодом.
 
 ## Следующий шаг
 
-1. Сделать короткий controlled LKH run с меньшими `MAX_TRIALS`, который гарантированно завершается в рамках лимита, и сравнить качество.
-2. Либо перейти к several-root 1-tree для усиления lower bound.
-3. Для защиты: объяснять LKH как сильную эвристику Lin-Kernighan, но опираться на наш independent verifier.
+Есть два сильных продолжения:
+
+1. Запустить LKH с несколькими seeds / RUNS и сохранить лучший upper bound.
+2. Усилить lower bound через several-root 1-tree или Held-Karp-style penalties.
+
+Первое быстрее и, вероятно, даст ещё лучший upper bound.

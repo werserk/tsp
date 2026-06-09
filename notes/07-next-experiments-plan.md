@@ -29,7 +29,9 @@ run → parse result → validate_tour → tour_length → save artifact → doc
 
 ## План экспериментов
 
-### 1. LKH benchmark — главный приоритет
+### 1. LKH benchmark — выполнено
+
+Результат: `73934`, artifact `results/best/step6-lkh-best.json`, заметка `notes/08-step6-lkh-benchmark.md`.
 
 Цель: быстро получить сильный upper bound.
 

@@ -40,8 +40,8 @@ references/
 - `notes/04-step3-nearest-neighbor-baseline.md` — первый валидный upper bound: nearest-neighbor multi-start, length `88839`.
 - `notes/05-step4-two-opt-improvement.md` — 2-opt improvement, новый upper bound `80585`.
 - `notes/06-step5-lower-bound-mst-one-tree.md` — MST / 1-tree lower bound, proof and current interval.
-- `notes/07-next-experiments-plan.md` — planned SOTA/external and own heuristic experiments.
-- `notes/08-step6-lkh-benchmark.md` — LKH benchmark and current best upper bound `73934`.
+- `notes/07-next-experiments-plan.md` — prioritized SOTA/baseline experiment plan.
+- `notes/08-step6-lkh-benchmark.md` — LKH benchmark, new best upper bound `73934`.
 
 ## Текущие bounds
 
@@ -62,6 +62,6 @@ lower: results/best/step5-lower-bound-baseline.json
 
 ## Следующий шаг
 
-1. Сделать controlled short LKH run, который завершается без timeout, для чистого benchmark artifact.
+1. Запустить LKH с несколькими seeds / RUNS для усиления upper bound.
 2. Или усилить lower bound: several-root 1-tree / Held-Karp-style penalties.
 3. Каждый новый best сохранять в `results/best/` и пересчитывать/обосновывать независимо.
