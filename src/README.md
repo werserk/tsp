@@ -6,6 +6,7 @@
 
 ```txt
 heuristics/nearest_neighbor.py  # deterministic nearest-neighbor upper-bound baseline
+heuristics/two_opt.py           # deterministic 2-opt local search improvement
 io/exceptions.py                # parse/validation exception classes
 io/matrix_loader.py             # format detection and matrix loading
 io/validation.py                # matrix and tour validation contracts

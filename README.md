@@ -38,18 +38,19 @@ references/
 - `notes/02-step1-data-audit.md` — аудит входных матриц: формат, размерность, симметрия, диапазоны, ограничения.
 - `notes/03-step2-core-infrastructure.md` — загрузчик матриц, валидация tour, пересчёт длины, smoke checks.
 - `notes/04-step3-nearest-neighbor-baseline.md` — первый валидный upper bound: nearest-neighbor multi-start, length `88839`.
+- `notes/05-step4-two-opt-improvement.md` — 2-opt improvement, новый upper bound `80585`.
 
 ## Текущий лучший upper bound
 
 ```txt
-algorithm: nearest_neighbor_multi_start
-length: 88839
-start_city: 219
-artifact: results/best/step3-nearest-neighbor-best.json
+algorithm: two_opt_first_improvement
+length: 80585
+improvement_vs_step3: 8254
+artifact: results/best/step4-two-opt-best.json
 ```
 
 ## Следующий шаг
 
-1. Улучшить upper bound через 2-opt local search от текущего best tour.
-2. Проверить tour через `validate_tour` и пересчитать длину через `tour_length`.
-3. Сохранить новый лучший результат в `results/best/`.
+1. Либо усилить upper bound: multi-start nearest-neighbor → 2-opt для каждого старта.
+2. Либо начать lower bound baseline: MST / 1-tree.
+3. Каждый новый best сохранять в `results/best/` и пересчитывать через `tour_length`.
