@@ -4,12 +4,17 @@
 
 ## Вывод
 
-Создано минимальное ядро для дальнейшей работы над bounds:
+Создано и отрефакторено минимальное ядро для дальнейшей работы над bounds:
 
 - загрузка матриц;
+- определение формата матрицы;
+- централизованные project constants;
+- общие типы `Matrix`, `Tour`, `City`, `Distance`;
+- custom exceptions для parse/validation ошибок;
 - валидация матриц;
 - валидация tour;
 - независимый пересчёт длины tour;
+- fast path `tour_length(..., validate=False)` для будущих горячих циклов;
 - smoke checks на реальных входных файлах.
 
 ## Реализованные файлы
@@ -19,18 +24,42 @@ src/
   __init__.py
   io/
     __init__.py
+    exceptions.py
     matrix_loader.py
     validation.py
   tsp/
     __init__.py
+    constants.py
     tour.py
+    types.py
 
 tests/
   conftest.py
   test_step2_core.py
+  test_step2_refactor_contract.py
 
 experiments/
   step2_smoke_checks.py
+```
+
+## Константы
+
+```python
+from src.tsp.constants import (
+    CHALLENGE_CITY_COUNT,
+    CHALLENGE_MATRIX_PATH,
+    LECTURE_SAMPLE_CITY_COUNT,
+    LECTURE_SAMPLE_MATRIX_PATH,
+    MATRIX_FORMAT_PLAIN_WITH_SIZE,
+    MATRIX_FORMAT_PYTHON_LITERAL,
+)
+```
+
+Canonical challenge constants:
+
+```python
+CHALLENGE_CITY_COUNT = 1114
+CHALLENGE_MATRIX_PATH = Path("data/raw/matrices/M.txt")
 ```
 
 ## API
@@ -47,7 +76,7 @@ data = load_matrix("data/raw/matrices/M.txt")
 
 ```python
 MatrixData(
-    matrix=list[list[int]],
+    matrix=Matrix,
     n=int,
     source_path=Path,
     format=str,
@@ -56,8 +85,20 @@ MatrixData(
 
 Поддержанные форматы:
 
-- `plain_with_size` — `M.txt`;
-- `python_literal` — `tsp_matrix1.txt`.
+- `MATRIX_FORMAT_PLAIN_WITH_SIZE` — `M.txt`;
+- `MATRIX_FORMAT_PYTHON_LITERAL` — `tsp_matrix1.txt`.
+
+Ошибки парсинга дают `MatrixParseError`.
+
+### `detect_matrix_format`
+
+```python
+from src.io.matrix_loader import detect_matrix_format
+
+matrix_format = detect_matrix_format(text)
+```
+
+Формат определяется один раз и дальше dispatch-ится на соответствующий parser.
 
 ### `validate_matrix`
 
@@ -74,6 +115,8 @@ validate_matrix(matrix)
 - нет отрицательных расстояний;
 - диагональ нулевая;
 - матрица симметричная по умолчанию.
+
+Ошибки дают `MatrixValidationError`.
 
 ### `validate_tour`
 
@@ -97,6 +140,8 @@ validate_tour(tour, n)
 
 Стартовый город в конце не дублируется. Возврат в старт считается неявно.
 
+Ошибки дают `TourValidationError`.
+
 ### `tour_length`
 
 ```python
@@ -105,7 +150,15 @@ from src.tsp.tour import tour_length
 length = tour_length(matrix, tour)
 ```
 
-Сначала валидирует матрицу и tour, затем считает длину цикла с неявным возвратом в старт.
+По умолчанию сначала валидирует матрицу и tour, затем считает длину цикла с неявным возвратом в старт.
+
+Для горячих циклов алгоритмов можно отключить повторную проверку уже валидированной матрицы/tour:
+
+```python
+length = tour_length(matrix, tour, validate=False)
+```
+
+Финальный reported tour всё равно надо пересчитывать с `validate=True`.
 
 ## Проверки
 
@@ -118,7 +171,7 @@ pytest -q
 Результат:
 
 ```txt
-11 passed
+19 passed
 ```
 
 Smoke checks:

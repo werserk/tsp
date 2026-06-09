@@ -1,20 +1,17 @@
 from __future__ import annotations
 
 from src.io.validation import validate_matrix, validate_tour
+from src.tsp.types import Matrix, Tour
 
 
-Matrix = list[list[int]]
-
-
-def tour_length(matrix: Matrix, tour: list[int]) -> int:
+def tour_length(matrix: Matrix, tour: Tour, *, validate: bool = True) -> int:
     """Return length of a Hamiltonian cycle; final edge to start is implicit."""
 
-    validate_matrix(matrix)
-    n = len(matrix)
-    validate_tour(tour, n)
+    if validate:
+        validate_matrix(matrix)
+        validate_tour(tour, len(matrix))
 
-    total = 0
-    for idx, city in enumerate(tour):
-        next_city = tour[(idx + 1) % n]
-        total += matrix[city][next_city]
-    return total
+    return sum(
+        matrix[city][tour[(index + 1) % len(tour)]]
+        for index, city in enumerate(tour)
+    )
