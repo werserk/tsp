@@ -18,6 +18,7 @@ Short instructions for coding agents working on this TSP project.
 - `notes/10-step8-multistart-two-opt.md` — own NN-ranked multi-start 2-opt check; useful backup but weaker than LKH.
 - `notes/11-step9-held-karp-one-tree.md` — Held-Karp-style 1-tree penalties; current best lower bound `65493.437369`.
 - `notes/12-step10-restricted-three-opt.md` — restricted 3-opt/LK-like local search check; no improvement over LKH.
+- `notes/13-step11-lkh-multiseed.md` — LKH multi-seed upper-bound search; seeds `1-20` did not improve `73934`.
 - `data/raw/matrices/README.md` — observed matrix formats and canonical challenge size.
 - `references/lecturer-code/` — lecturer-provided Python examples; read as reference, do not edit in place.
 

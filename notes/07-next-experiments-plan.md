@@ -134,14 +134,22 @@ choose best
 - выше риск ошибок;
 - LKH, вероятно, всё равно даст лучше.
 
+### 6. LKH multi-seed upper-bound search — выполнено
+
+Результат: первая дешёвая волна `seeds=1-20`, `RUNS=1` не улучшила `73934`; artifact `results/runs/step11-lkh-multiseed.json`, заметка `notes/13-step11-lkh-multiseed.md`.
+
+Вывод: простая смена seed уже не даёт лёгкого upper-bound gain. Следующий upper-bound шаг должен быть более тяжёлой LKH tuning wave, а не ещё одним идентичным seed sweep.
+
 ## Рекомендованный порядок
 
 ```txt
-1. LKH benchmark
-2. Several-root 1-tree lower bound
-3. Multi-start NN → 2-opt
-4. Held-Karp 1-tree penalties
-5. 3-opt / LK-like local search
+1. LKH benchmark — выполнено
+2. Several-root 1-tree lower bound — выполнено
+3. Multi-start NN → 2-opt — выполнено
+4. Held-Karp 1-tree penalties — выполнено
+5. 3-opt / LK-like local search — выполнено, no improvement
+6. LKH multi-seed search — выполнено, no improvement
+7. Optional: heavier LKH tuning wave or lower-bound tuning
 ```
 
 ## Критерий успеха

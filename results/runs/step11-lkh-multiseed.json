@@ -1,0 +1,362 @@
+{
+  "algorithm": "lkh_2_0_11_multiseed",
+  "input_file": "data/raw/matrices/M.txt",
+  "tsplib_file": "data/processed/challenge-full-matrix.tsp",
+  "n": 1114,
+  "seed_spec": "1-20",
+  "runs_per_seed": 1,
+  "max_trials": null,
+  "current_upper_bound": 73934,
+  "best_verified_length": 73934,
+  "best_seed": 1,
+  "best_run": {
+    "seed": 1,
+    "solver_length": 73934,
+    "verified_length": 73934,
+    "runtime_seconds": 21.127321,
+    "parameter_file": "data/processed/lkh-step11-seed-1.par",
+    "output_tour_file": "data/processed/lkh-step11-seed-1.tour",
+    "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-1.par",
+    "parameters": {
+      "runs": 1,
+      "seed": 1,
+      "trace_level": 1,
+      "max_trials": null
+    },
+    "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-1.tour\" ... done\n* 192: Cost = 73934, Time = 2.36 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-1.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-1.tour\" ... done\nRun 1: Cost = 73934, Time = 20.28 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 20.28 sec., Time.avg = 20.28 sec., Time.max = 20.28 sec.\nTime.total = 21.04 sec."
+  },
+  "improved_current_upper_bound": false,
+  "improvement": 0,
+  "lower_bound": 65493.4373688764,
+  "absolute_gap": 8440.562631123597,
+  "relative_gap": 0.11416347865831143,
+  "runs_completed": 20,
+  "runs_failed": 0,
+  "failures": [],
+  "runs": [
+    {
+      "seed": 1,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 21.127321,
+      "parameter_file": "data/processed/lkh-step11-seed-1.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-1.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-1.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 1,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-1.tour\" ... done\n* 192: Cost = 73934, Time = 2.36 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-1.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-1.tour\" ... done\nRun 1: Cost = 73934, Time = 20.28 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 20.28 sec., Time.avg = 20.28 sec., Time.max = 20.28 sec.\nTime.total = 21.04 sec."
+    },
+    {
+      "seed": 2,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 20.481234,
+      "parameter_file": "data/processed/lkh-step11-seed-2.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-2.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-2.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 2,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-2.tour\" ... done\n* 722: Cost = 73934, Time = 12.10 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-2.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-2.tour\" ... done\nRun 1: Cost = 73934, Time = 19.62 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 19.62 sec., Time.avg = 19.62 sec., Time.max = 19.62 sec.\nTime.total = 20.40 sec."
+    },
+    {
+      "seed": 3,
+      "solver_length": 73941,
+      "verified_length": 73941,
+      "runtime_seconds": 16.575054,
+      "parameter_file": "data/processed/lkh-step11-seed-3.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-3.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-3.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 3,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-3.tour\" ... done\n* 77: Cost = 73941, Time = 1.52 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-3.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-3.tour\" ... done\nRun 1: Cost = 73941, Time = 15.75 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73941, Cost.avg = 73941.00, Cost.max = 73941\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 15.75 sec., Time.avg = 15.75 sec., Time.max = 15.75 sec.\nTime.total = 16.51 sec."
+    },
+    {
+      "seed": 4,
+      "solver_length": 73947,
+      "verified_length": 73947,
+      "runtime_seconds": 26.899955,
+      "parameter_file": "data/processed/lkh-step11-seed-4.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-4.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-4.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 4,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-4.tour\" ... done\n* 271: Cost = 73947, Time = 2.76 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-4.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-4.tour\" ... done\nRun 1: Cost = 73947, Time = 26.01 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73947, Cost.avg = 73947.00, Cost.max = 73947\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 26.01 sec., Time.avg = 26.01 sec., Time.max = 26.01 sec.\nTime.total = 26.78 sec."
+    },
+    {
+      "seed": 5,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 21.292536,
+      "parameter_file": "data/processed/lkh-step11-seed-5.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-5.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-5.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 5,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-5.tour\" ... done\n* 396: Cost = 73934, Time = 7.93 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-5.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-5.tour\" ... done\nRun 1: Cost = 73934, Time = 20.40 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 20.40 sec., Time.avg = 20.40 sec., Time.max = 20.40 sec.\nTime.total = 21.18 sec."
+    },
+    {
+      "seed": 6,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 22.229326,
+      "parameter_file": "data/processed/lkh-step11-seed-6.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-6.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-6.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 6,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-6.tour\" ... done\n* 587: Cost = 73934, Time = 11.85 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-6.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-6.tour\" ... done\nRun 1: Cost = 73934, Time = 21.37 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 21.37 sec., Time.avg = 21.37 sec., Time.max = 21.37 sec.\nTime.total = 22.14 sec."
+    },
+    {
+      "seed": 7,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 20.28696,
+      "parameter_file": "data/processed/lkh-step11-seed-7.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-7.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-7.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 7,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-7.tour\" ... done\n* 366: Cost = 73934, Time = 4.56 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-7.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-7.tour\" ... done\nRun 1: Cost = 73934, Time = 19.40 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 19.40 sec., Time.avg = 19.40 sec., Time.max = 19.40 sec.\nTime.total = 20.17 sec."
+    },
+    {
+      "seed": 8,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 27.449672,
+      "parameter_file": "data/processed/lkh-step11-seed-8.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-8.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-8.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 8,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-8.tour\" ... done\n* 462: Cost = 73934, Time = 11.24 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-8.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-8.tour\" ... done\nRun 1: Cost = 73934, Time = 26.53 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 26.53 sec., Time.avg = 26.53 sec., Time.max = 26.53 sec.\nTime.total = 27.30 sec."
+    },
+    {
+      "seed": 9,
+      "solver_length": 74046,
+      "verified_length": 74046,
+      "runtime_seconds": 6.264722,
+      "parameter_file": "data/processed/lkh-step11-seed-9.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-9.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-9.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 9,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-9.tour\" ... done\n* 37: Cost = 74046, Time = 0.56 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-9.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-9.tour\" ... done\nRun 1: Cost = 74046, Time = 5.45 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 74046, Cost.avg = 74046.00, Cost.max = 74046\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 5.45 sec., Time.avg = 5.45 sec., Time.max = 5.45 sec.\nTime.total = 6.23 sec."
+    },
+    {
+      "seed": 10,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 23.253011,
+      "parameter_file": "data/processed/lkh-step11-seed-10.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-10.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-10.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 10,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-10.tour\" ... done\n* 175: Cost = 73934, Time = 4.18 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-10.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-10.tour\" ... done\nRun 1: Cost = 73934, Time = 22.35 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 22.35 sec., Time.avg = 22.35 sec., Time.max = 22.35 sec.\nTime.total = 23.13 sec."
+    },
+    {
+      "seed": 11,
+      "solver_length": 74044,
+      "verified_length": 74044,
+      "runtime_seconds": 17.133591,
+      "parameter_file": "data/processed/lkh-step11-seed-11.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-11.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-11.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 11,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-11.tour\" ... done\n* 353: Cost = 74044, Time = 3.00 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-11.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-11.tour\" ... done\nRun 1: Cost = 74044, Time = 16.27 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 74044, Cost.avg = 74044.00, Cost.max = 74044\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 16.27 sec., Time.avg = 16.27 sec., Time.max = 16.27 sec.\nTime.total = 17.04 sec."
+    },
+    {
+      "seed": 12,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 26.062801,
+      "parameter_file": "data/processed/lkh-step11-seed-12.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-12.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-12.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 12,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-12.tour\" ... done\n* 520: Cost = 73934, Time = 13.07 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-12.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-12.tour\" ... done\nRun 1: Cost = 73934, Time = 25.13 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 25.13 sec., Time.avg = 25.13 sec., Time.max = 25.13 sec.\nTime.total = 25.91 sec."
+    },
+    {
+      "seed": 13,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 26.907239,
+      "parameter_file": "data/processed/lkh-step11-seed-13.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-13.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-13.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 13,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-13.tour\" ... done\n* 289: Cost = 73934, Time = 9.83 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-13.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-13.tour\" ... done\nRun 1: Cost = 73934, Time = 26.02 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 26.02 sec., Time.avg = 26.02 sec., Time.max = 26.02 sec.\nTime.total = 26.80 sec."
+    },
+    {
+      "seed": 14,
+      "solver_length": 73941,
+      "verified_length": 73941,
+      "runtime_seconds": 17.751583,
+      "parameter_file": "data/processed/lkh-step11-seed-14.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-14.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-14.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 14,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-14.tour\" ... done\n* 5: Cost = 73941, Time = 0.44 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-14.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-14.tour\" ... done\nRun 1: Cost = 73941, Time = 16.87 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73941, Cost.avg = 73941.00, Cost.max = 73941\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 16.87 sec., Time.avg = 16.87 sec., Time.max = 16.87 sec.\nTime.total = 17.65 sec."
+    },
+    {
+      "seed": 15,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 22.758137,
+      "parameter_file": "data/processed/lkh-step11-seed-15.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-15.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-15.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 15,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-15.tour\" ... done\n* 543: Cost = 73934, Time = 11.24 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-15.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-15.tour\" ... done\nRun 1: Cost = 73934, Time = 21.86 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 21.86 sec., Time.avg = 21.86 sec., Time.max = 21.86 sec.\nTime.total = 22.64 sec."
+    },
+    {
+      "seed": 16,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 18.906104,
+      "parameter_file": "data/processed/lkh-step11-seed-16.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-16.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-16.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 16,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-16.tour\" ... done\n* 694: Cost = 73934, Time = 9.82 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-16.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-16.tour\" ... done\nRun 1: Cost = 73934, Time = 18.04 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 18.04 sec., Time.avg = 18.04 sec., Time.max = 18.04 sec.\nTime.total = 18.80 sec."
+    },
+    {
+      "seed": 17,
+      "solver_length": 74044,
+      "verified_length": 74044,
+      "runtime_seconds": 15.177482,
+      "parameter_file": "data/processed/lkh-step11-seed-17.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-17.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-17.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 17,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-17.tour\" ... done\n* 509: Cost = 74044, Time = 4.20 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-17.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-17.tour\" ... done\nRun 1: Cost = 74044, Time = 14.31 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 74044, Cost.avg = 74044.00, Cost.max = 74044\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 14.31 sec., Time.avg = 14.31 sec., Time.max = 14.31 sec.\nTime.total = 15.09 sec."
+    },
+    {
+      "seed": 18,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 21.363846,
+      "parameter_file": "data/processed/lkh-step11-seed-18.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-18.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-18.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 18,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-18.tour\" ... done\n* 697: Cost = 73934, Time = 12.07 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-18.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-18.tour\" ... done\nRun 1: Cost = 73934, Time = 20.46 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 20.46 sec., Time.avg = 20.46 sec., Time.max = 20.46 sec.\nTime.total = 21.24 sec."
+    },
+    {
+      "seed": 19,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 25.129935,
+      "parameter_file": "data/processed/lkh-step11-seed-19.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-19.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-19.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 19,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-19.tour\" ... done\n* 131: Cost = 73934, Time = 2.41 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-19.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-19.tour\" ... done\nRun 1: Cost = 73934, Time = 24.23 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 24.23 sec., Time.avg = 24.23 sec., Time.max = 24.23 sec.\nTime.total = 25.00 sec."
+    },
+    {
+      "seed": 20,
+      "solver_length": 73934,
+      "verified_length": 73934,
+      "runtime_seconds": 33.551549,
+      "parameter_file": "data/processed/lkh-step11-seed-20.par",
+      "output_tour_file": "data/processed/lkh-step11-seed-20.tour",
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step11-seed-20.par",
+      "parameters": {
+        "runs": 1,
+        "seed": 20,
+        "trace_level": 1,
+        "max_trials": null
+      },
+      "lkh_stdout_tail": "Writing OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-20.tour\" ... done\n* 536: Cost = 73934, Time = 21.05 sec. \nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-20.tour\" ... done\nWriting OUTPUT_TOUR_FILE: \"data/processed/lkh-step11-seed-20.tour\" ... done\nRun 1: Cost = 73934, Time = 32.62 sec. \n\nSuccesses/Runs = 0/1\nCost.min = 73934, Cost.avg = 73934.00, Cost.max = 73934\nGap.min = 0.0000%, Gap.avg = 0.0000%, Gap.max = 0.0000%\nTrials.min = 1114, Trials.avg = 1114.0, Trials.max = 1114\nTime.min = 32.62 sec., Time.avg = 32.62 sec., Time.max = 32.62 sec.\nTime.total = 33.40 sec."
+    }
+  ],
+  "output_policy": "results/runs/step11-lkh-multiseed.json",
+  "command": "python experiments/step11_lkh_multiseed.py --seeds 1-20 --runs 1",
+  "lkh_binary": "tools/LKH-2.0.11/LKH",
+  "created_at": "2026-06-09T18:08:45.095244+00:00"
+}
