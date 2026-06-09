@@ -1,0 +1,377 @@
+{
+  "algorithm": "several_root_one_tree_lower_bound",
+  "input_file": "data/raw/matrices/M.txt",
+  "n": 1114,
+  "candidate_count": 71,
+  "candidate_roots": [
+    0,
+    16,
+    32,
+    48,
+    64,
+    80,
+    96,
+    112,
+    128,
+    144,
+    160,
+    176,
+    192,
+    208,
+    224,
+    240,
+    256,
+    272,
+    288,
+    304,
+    320,
+    336,
+    352,
+    368,
+    384,
+    400,
+    416,
+    432,
+    448,
+    464,
+    480,
+    496,
+    512,
+    528,
+    544,
+    560,
+    576,
+    592,
+    608,
+    624,
+    640,
+    656,
+    672,
+    688,
+    704,
+    720,
+    736,
+    752,
+    768,
+    784,
+    800,
+    816,
+    832,
+    848,
+    864,
+    880,
+    896,
+    912,
+    928,
+    944,
+    960,
+    976,
+    992,
+    1008,
+    1024,
+    1040,
+    1056,
+    1072,
+    1088,
+    1104,
+    1113
+  ],
+  "best_root_city": 992,
+  "lower_bound": 63494,
+  "upper_bound": 73934,
+  "absolute_gap": 10440,
+  "relative_gap": 0.14120702247950875,
+  "upper_bound_artifact": "results/best/step6-lkh-best.json",
+  "proof_note": "notes/09-step7-several-root-one-tree.md",
+  "evaluated_bounds": [
+    {
+      "root_city": 0,
+      "lower_bound": 62838
+    },
+    {
+      "root_city": 16,
+      "lower_bound": 62826
+    },
+    {
+      "root_city": 32,
+      "lower_bound": 62857
+    },
+    {
+      "root_city": 48,
+      "lower_bound": 62900
+    },
+    {
+      "root_city": 64,
+      "lower_bound": 62824
+    },
+    {
+      "root_city": 80,
+      "lower_bound": 62848
+    },
+    {
+      "root_city": 96,
+      "lower_bound": 63112
+    },
+    {
+      "root_city": 112,
+      "lower_bound": 62870
+    },
+    {
+      "root_city": 128,
+      "lower_bound": 62866
+    },
+    {
+      "root_city": 144,
+      "lower_bound": 62839
+    },
+    {
+      "root_city": 160,
+      "lower_bound": 62858
+    },
+    {
+      "root_city": 176,
+      "lower_bound": 62904
+    },
+    {
+      "root_city": 192,
+      "lower_bound": 62867
+    },
+    {
+      "root_city": 208,
+      "lower_bound": 62839
+    },
+    {
+      "root_city": 224,
+      "lower_bound": 62890
+    },
+    {
+      "root_city": 240,
+      "lower_bound": 62865
+    },
+    {
+      "root_city": 256,
+      "lower_bound": 63024
+    },
+    {
+      "root_city": 272,
+      "lower_bound": 62979
+    },
+    {
+      "root_city": 288,
+      "lower_bound": 62871
+    },
+    {
+      "root_city": 304,
+      "lower_bound": 62847
+    },
+    {
+      "root_city": 320,
+      "lower_bound": 62895
+    },
+    {
+      "root_city": 336,
+      "lower_bound": 62842
+    },
+    {
+      "root_city": 352,
+      "lower_bound": 62967
+    },
+    {
+      "root_city": 368,
+      "lower_bound": 62845
+    },
+    {
+      "root_city": 384,
+      "lower_bound": 62905
+    },
+    {
+      "root_city": 400,
+      "lower_bound": 62905
+    },
+    {
+      "root_city": 416,
+      "lower_bound": 62837
+    },
+    {
+      "root_city": 432,
+      "lower_bound": 62882
+    },
+    {
+      "root_city": 448,
+      "lower_bound": 62862
+    },
+    {
+      "root_city": 464,
+      "lower_bound": 62893
+    },
+    {
+      "root_city": 480,
+      "lower_bound": 62829
+    },
+    {
+      "root_city": 496,
+      "lower_bound": 62892
+    },
+    {
+      "root_city": 512,
+      "lower_bound": 62859
+    },
+    {
+      "root_city": 528,
+      "lower_bound": 62896
+    },
+    {
+      "root_city": 544,
+      "lower_bound": 62836
+    },
+    {
+      "root_city": 560,
+      "lower_bound": 62928
+    },
+    {
+      "root_city": 576,
+      "lower_bound": 62878
+    },
+    {
+      "root_city": 592,
+      "lower_bound": 62871
+    },
+    {
+      "root_city": 608,
+      "lower_bound": 62848
+    },
+    {
+      "root_city": 624,
+      "lower_bound": 62859
+    },
+    {
+      "root_city": 640,
+      "lower_bound": 62986
+    },
+    {
+      "root_city": 656,
+      "lower_bound": 62889
+    },
+    {
+      "root_city": 672,
+      "lower_bound": 62877
+    },
+    {
+      "root_city": 688,
+      "lower_bound": 62901
+    },
+    {
+      "root_city": 704,
+      "lower_bound": 62838
+    },
+    {
+      "root_city": 720,
+      "lower_bound": 62869
+    },
+    {
+      "root_city": 736,
+      "lower_bound": 62844
+    },
+    {
+      "root_city": 752,
+      "lower_bound": 62867
+    },
+    {
+      "root_city": 768,
+      "lower_bound": 62930
+    },
+    {
+      "root_city": 784,
+      "lower_bound": 62836
+    },
+    {
+      "root_city": 800,
+      "lower_bound": 62896
+    },
+    {
+      "root_city": 816,
+      "lower_bound": 62839
+    },
+    {
+      "root_city": 832,
+      "lower_bound": 62850
+    },
+    {
+      "root_city": 848,
+      "lower_bound": 62834
+    },
+    {
+      "root_city": 864,
+      "lower_bound": 62851
+    },
+    {
+      "root_city": 880,
+      "lower_bound": 62851
+    },
+    {
+      "root_city": 896,
+      "lower_bound": 62832
+    },
+    {
+      "root_city": 912,
+      "lower_bound": 62854
+    },
+    {
+      "root_city": 928,
+      "lower_bound": 62869
+    },
+    {
+      "root_city": 944,
+      "lower_bound": 62940
+    },
+    {
+      "root_city": 960,
+      "lower_bound": 63041
+    },
+    {
+      "root_city": 976,
+      "lower_bound": 62872
+    },
+    {
+      "root_city": 992,
+      "lower_bound": 63494
+    },
+    {
+      "root_city": 1008,
+      "lower_bound": 62832
+    },
+    {
+      "root_city": 1024,
+      "lower_bound": 62877
+    },
+    {
+      "root_city": 1040,
+      "lower_bound": 62862
+    },
+    {
+      "root_city": 1056,
+      "lower_bound": 62906
+    },
+    {
+      "root_city": 1072,
+      "lower_bound": 62845
+    },
+    {
+      "root_city": 1088,
+      "lower_bound": 62835
+    },
+    {
+      "root_city": 1104,
+      "lower_bound": 62933
+    },
+    {
+      "root_city": 1113,
+      "lower_bound": 62866
+    }
+  ],
+  "metadata": {
+    "proof": "max_of_valid_fixed_root_one_tree_lower_bounds"
+  },
+  "command": "python experiments/step7_several_root_one_tree.py",
+  "created_at": "2026-06-09T16:35:41.809971+00:00"
+}

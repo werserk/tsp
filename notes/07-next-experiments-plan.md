@@ -5,18 +5,18 @@
 ## Текущий baseline
 
 ```txt
-lower_bound: 62838
-upper_bound: 80585
-interval: 62838 <= OPT <= 80585
-absolute_gap: 17747
-relative_gap: 22.02%
+lower_bound: 63494
+upper_bound: 73934
+interval: 63494 <= OPT <= 73934
+absolute_gap: 10440
+relative_gap: 14.12%
 ```
 
 Artifacts:
 
 ```txt
-upper: results/best/step4-two-opt-best.json
-lower: results/best/step5-lower-bound-baseline.json
+upper: results/best/step6-lkh-best.json
+lower: results/best/step7-several-root-one-tree.json
 ```
 
 ## Цель
@@ -56,7 +56,9 @@ experiments/step6_lkh_benchmark.py
 results/best/step6-lkh-best.json
 ```
 
-### 2. Several-root 1-tree lower bound
+### 2. Several-root 1-tree lower bound — выполнено
+
+Результат: `63494`, artifact `results/best/step7-several-root-one-tree.json`, заметка `notes/09-step7-several-root-one-tree.md`.
 
 Цель: усилить lower bound `62838` без усложнения доказательства.
 

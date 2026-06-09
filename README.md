@@ -42,26 +42,27 @@ references/
 - `notes/06-step5-lower-bound-mst-one-tree.md` — MST / 1-tree lower bound, proof and current interval.
 - `notes/07-next-experiments-plan.md` — prioritized SOTA/baseline experiment plan.
 - `notes/08-step6-lkh-benchmark.md` — LKH benchmark, new best upper bound `73934`.
+- `notes/09-step7-several-root-one-tree.md` — sampled several-root 1-tree lower bound, new lower bound `63494`.
 
 ## Текущие bounds
 
 ```txt
-lower_bound: 62838
+lower_bound: 63494
 upper_bound: 73934
-interval: 62838 <= OPT <= 73934
-absolute_gap: 11096
-relative_gap: 15.01%
+interval: 63494 <= OPT <= 73934
+absolute_gap: 10440
+relative_gap: 14.12%
 ```
 
 Artifacts:
 
 ```txt
 upper: results/best/step6-lkh-best.json
-lower: results/best/step5-lower-bound-baseline.json
+lower: results/best/step7-several-root-one-tree.json
 ```
 
 ## Следующий шаг
 
 1. Запустить LKH с несколькими seeds / RUNS для усиления upper bound.
-2. Или усилить lower bound: several-root 1-tree / Held-Karp-style penalties.
+2. Или усилить lower bound дальше: Held-Karp-style 1-tree penalties.
 3. Каждый новый best сохранять в `results/best/` и пересчитывать/обосновывать независимо.

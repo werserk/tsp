@@ -14,6 +14,7 @@ Short instructions for coding agents working on this TSP project.
 - `notes/06-step5-lower-bound-mst-one-tree.md` — MST / 1-tree lower-bound proof and current optimality interval.
 - `notes/07-next-experiments-plan.md` — prioritized next experiments: LKH, several-root 1-tree, multi-start 2-opt, Held-Karp-style penalties.
 - `notes/08-step6-lkh-benchmark.md` — LKH benchmark and current best upper bound `73934`.
+- `notes/09-step7-several-root-one-tree.md` — sampled several-root 1-tree proof and current best lower bound `63494`.
 - `data/raw/matrices/README.md` — observed matrix formats and canonical challenge size.
 - `references/lecturer-code/` — lecturer-provided Python examples; read as reference, do not edit in place.
 

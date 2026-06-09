@@ -6,7 +6,7 @@
 
 ```txt
 bounds/mst.py                  # deterministic Prim MST lower-bound utility
-bounds/one_tree.py             # fixed-root 1-tree lower-bound baseline
+bounds/one_tree.py             # fixed-root and several-root 1-tree lower-bound utilities
 heuristics/nearest_neighbor.py  # deterministic nearest-neighbor upper-bound baseline
 heuristics/two_opt.py           # deterministic 2-opt local search improvement
 io/tsplib.py                    # TSPLIB FULL_MATRIX export and TOUR_SECTION parser

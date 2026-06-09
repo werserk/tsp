@@ -26,16 +26,30 @@ def minimum_spanning_tree(matrix: Matrix, *, excluded_vertex: City | None = None
     if len(vertices) == 1:
         return MSTResult(algorithm=MST_ALGORITHM, weight=0, edges=[], vertices=vertices)
 
-    included = {vertices[0]}
+    start = vertices[0]
+    included = {start}
     edges: list[tuple[City, City, int]] = []
     total_weight = 0
+    best_crossing_edge: dict[City, tuple[City, City, int]] = {
+        city: (start, city, matrix[start][city]) for city in vertices if city != start
+    }
 
     while len(included) < len(vertices):
-        next_edge = _find_lightest_crossing_edge(matrix, included, vertices)
+        next_edge = min(
+            (edge for city, edge in best_crossing_edge.items() if city not in included),
+            key=_edge_sort_key,
+        )
         from_city, to_city, weight = next_edge
         included.add(to_city)
         edges.append(next_edge)
         total_weight += weight
+
+        for city in vertices:
+            if city in included:
+                continue
+            candidate = (to_city, city, matrix[to_city][city])
+            if _edge_sort_key(candidate) < _edge_sort_key(best_crossing_edge[city]):
+                best_crossing_edge[city] = candidate
 
     return MSTResult(
         algorithm=MST_ALGORITHM,
@@ -43,25 +57,6 @@ def minimum_spanning_tree(matrix: Matrix, *, excluded_vertex: City | None = None
         edges=edges,
         vertices=vertices,
     )
-
-
-def _find_lightest_crossing_edge(
-    matrix: Matrix,
-    included: set[City],
-    vertices: list[City],
-) -> tuple[City, City, int]:
-    best: tuple[City, City, int] | None = None
-    for from_city in sorted(included):
-        for to_city in vertices:
-            if to_city in included:
-                continue
-            candidate = (from_city, to_city, matrix[from_city][to_city])
-            if best is None or _edge_sort_key(candidate) < _edge_sort_key(best):
-                best = candidate
-
-    if best is None:
-        raise ValueError("graph is disconnected")
-    return best
 
 
 def _edge_sort_key(edge: tuple[City, City, int]) -> tuple[int, City, City]:
