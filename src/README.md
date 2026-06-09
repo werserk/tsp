@@ -7,6 +7,7 @@
 ```txt
 bounds/mst.py                  # deterministic Prim MST lower-bound utility
 bounds/one_tree.py             # fixed-root and several-root 1-tree lower-bound utilities
+bounds/held_karp.py            # Lagrangian 1-tree penalties lower-bound utility
 heuristics/nearest_neighbor.py  # deterministic nearest-neighbor upper-bound baseline
 heuristics/two_opt.py           # deterministic 2-opt local search improvement
 heuristics/multistart_two_opt.py # NN-ranked multi-start 2-opt upper-bound check

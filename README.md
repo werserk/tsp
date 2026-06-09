@@ -44,27 +44,29 @@ references/
 - `notes/08-step6-lkh-benchmark.md` — LKH benchmark, new best upper bound `73934`.
 - `notes/09-step7-several-root-one-tree.md` — sampled several-root 1-tree lower bound, new lower bound `63494`.
 - `notes/10-step8-multistart-two-opt.md` — own NN-ranked multi-start 2-opt check, length `77771`.
+- `notes/11-step9-held-karp-one-tree.md` — Held-Karp-style Lagrangian 1-tree penalties, new lower bound `65493.437369`.
 
 ## Текущие bounds
 
 ```txt
-lower_bound: 63494
+lower_bound: 65493.437369
 upper_bound: 73934
-interval: 63494 <= OPT <= 73934
-absolute_gap: 10440
-relative_gap: 14.12%
+interval: 65493.437369 <= OPT <= 73934
+integer interval: 65494 <= OPT <= 73934
+absolute_gap: 8440.562631
+relative_gap: 11.42%
 ```
 
 Artifacts:
 
 ```txt
 upper: results/best/step6-lkh-best.json
-lower: results/best/step7-several-root-one-tree.json
+lower: results/best/step9-held-karp-one-tree.json
 ```
 
 ## Следующий шаг
 
 1. Запустить LKH с несколькими seeds / RUNS для усиления upper bound.
-2. Или усилить lower bound дальше: Held-Karp-style 1-tree penalties.
+2. Если останется время — донастроить Held-Karp step schedule / root выбор для lower bound.
 3. Не тратить много времени на текущий pure-Python 2-opt full multi-start: один старт занимает около минуты, а bounded Step 8 не побил LKH.
 4. Каждый новый best сохранять в `results/best/` и пересчитывать/обосновывать независимо.

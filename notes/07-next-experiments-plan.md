@@ -5,18 +5,19 @@
 ## Текущий baseline
 
 ```txt
-lower_bound: 63494
+lower_bound: 65493.437369
 upper_bound: 73934
-interval: 63494 <= OPT <= 73934
-absolute_gap: 10440
-relative_gap: 14.12%
+interval: 65493.437369 <= OPT <= 73934
+integer interval: 65494 <= OPT <= 73934
+absolute_gap: 8440.562631
+relative_gap: 11.42%
 ```
 
 Artifacts:
 
 ```txt
 upper: results/best/step6-lkh-best.json
-lower: results/best/step7-several-root-one-tree.json
+lower: results/best/step9-held-karp-one-tree.json
 ```
 
 ## Цель
@@ -99,7 +100,9 @@ choose best
 
 Риск: текущая полная схема `1114` стартов слишком медленная; Step 8 использовал NN-ranking по stride-16 кандидатам и 2-opt только на top-4 starts. Метод улучшил старый собственный `80585 → 77771`, но не побил LKH `73934`.
 
-### 4. Held-Karp-style 1-tree penalties
+### 4. Held-Karp-style 1-tree penalties — выполнено
+
+Результат: `65493.437369`, artifact `results/best/step9-held-karp-one-tree.json`, заметка `notes/11-step9-held-karp-one-tree.md`.
 
 Цель: серьёзнее усилить lower bound.
 
