@@ -40,6 +40,7 @@ references/
 - `notes/04-step3-nearest-neighbor-baseline.md` — первый валидный upper bound: nearest-neighbor multi-start, length `88839`.
 - `notes/05-step4-two-opt-improvement.md` — 2-opt improvement, новый upper bound `80585`.
 - `notes/06-step5-lower-bound-mst-one-tree.md` — MST / 1-tree lower bound, proof and current interval.
+- `notes/07-next-experiments-plan.md` — short plan for SOTA/external and next internal experiments.
 
 ## Текущие bounds
 
