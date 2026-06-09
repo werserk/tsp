@@ -11,6 +11,7 @@ bounds/held_karp.py            # Lagrangian 1-tree penalties lower-bound utility
 heuristics/nearest_neighbor.py  # deterministic nearest-neighbor upper-bound baseline
 heuristics/two_opt.py           # deterministic 2-opt local search improvement
 heuristics/multistart_two_opt.py # NN-ranked multi-start 2-opt upper-bound check
+heuristics/restricted_three_opt.py # bounded 3-opt/LK-like local-search check
 io/tsplib.py                    # TSPLIB FULL_MATRIX export and TOUR_SECTION parser
 io/exceptions.py                # parse/validation exception classes
 io/matrix_loader.py             # format detection and matrix loading

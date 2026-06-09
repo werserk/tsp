@@ -122,7 +122,9 @@ choose best
 - сложнее реализовать и объяснить;
 - нужен аккуратный proof note.
 
-### 5. 3-opt / restricted LK-like local search
+### 5. 3-opt / restricted LK-like local search — выполнено
+
+Результат: bounded check поверх LKH tour не улучшил `73934`; artifact `results/runs/step10-restricted-three-opt.json`, заметка `notes/12-step10-restricted-three-opt.md`.
 
 Цель: приблизиться к Lin-Kernighan своей реализацией.
 

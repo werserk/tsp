@@ -45,6 +45,7 @@ references/
 - `notes/09-step7-several-root-one-tree.md` — sampled several-root 1-tree lower bound, new lower bound `63494`.
 - `notes/10-step8-multistart-two-opt.md` — own NN-ranked multi-start 2-opt check, length `77771`.
 - `notes/11-step9-held-karp-one-tree.md` — Held-Karp-style Lagrangian 1-tree penalties, new lower bound `65493.437369`.
+- `notes/12-step10-restricted-three-opt.md` — restricted 3-opt/LK-like check on LKH tour; no improvement over `73934`.
 
 ## Текущие bounds
 
