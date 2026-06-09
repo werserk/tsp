@@ -27,6 +27,7 @@ from experiments.step12_lkh_portfolio import (
     parse_seed_spec,
     plan_remaining_jobs,
     read_ledger_records,
+    records_for_jobs,
     result_payload,
     runtime_stats,
     should_start_next_job,
@@ -224,6 +225,26 @@ def test_markdown_and_html_reports_include_core_tables():
     assert "Length distribution" in html
     assert "Runtime by config" in html
     assert "A_default_r3__seed_1" in html
+
+
+def test_records_for_jobs_filters_unrelated_old_ledger_rows_and_dedupes_latest():
+    jobs = [
+        Job(config=Config("A", {"RUNS": 3}), seed=1, job_index=1, jobs_total=2),
+        Job(config=Config("A", {"RUNS": 3}), seed=2, job_index=2, jobs_total=2),
+    ]
+    records = [
+        {"job_id": "A__seed_1", "status": "done", "verified_length": 74000, "created_at": "old"},
+        {"job_id": "B__seed_1", "status": "done", "verified_length": 73900, "created_at": "unrelated"},
+        {"job_id": "A__seed_1", "status": "done", "verified_length": 73934, "created_at": "new"},
+        {"job_id": "A__seed_2", "status": "timeout", "error": "expired"},
+    ]
+
+    filtered = records_for_jobs(records, jobs)
+
+    assert filtered == [
+        {"job_id": "A__seed_1", "status": "done", "verified_length": 73934, "created_at": "new"},
+        {"job_id": "A__seed_2", "status": "timeout", "error": "expired"},
+    ]
 
 
 def test_expected_output_paths_are_project_relative():

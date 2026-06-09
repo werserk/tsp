@@ -185,6 +185,19 @@ def completed_job_ids(records: list[dict[str, Any]]) -> set[str]:
     return {str(record["job_id"]) for record in records if record.get("status") in terminal}
 
 
+def records_for_jobs(records: list[dict[str, Any]], jobs: list[Job]) -> list[dict[str, Any]]:
+    """Return the latest terminal ledger record for each requested job, in job order."""
+
+    wanted = {job.job_id for job in jobs}
+    latest_by_id: dict[str, dict[str, Any]] = {}
+    terminal_statuses = {"done", "failed", "timeout"}
+    for record in records:
+        record_id = str(record.get("job_id", ""))
+        if record_id in wanted and record.get("status") in terminal_statuses:
+            latest_by_id[record_id] = record
+    return [latest_by_id[job.job_id] for job in jobs if job.job_id in latest_by_id]
+
+
 def plan_remaining_jobs(
     jobs: list[Job],
     records: list[dict[str, Any]],
@@ -645,7 +658,7 @@ def run_jobs(
 
     data = load_matrix(ROOT / CHALLENGE_MATRIX_PATH)
     write_explicit_tsplib(data.matrix, ROOT / TSPLIB_PATH, name=TSPLIB_NAME)
-    records = list(prior_records)
+    records = records_for_jobs(prior_records, jobs)
     started_at = time.perf_counter()
     budget_seconds = None if time_budget_hours is None else time_budget_hours * 3600.0
     timeout_seconds = job_timeout_minutes * 60.0

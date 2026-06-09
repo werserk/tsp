@@ -3,7 +3,7 @@
 ## Command
 
 ```bash
-python experiments/step12_lkh_portfolio.py --configs A_default_r3 --seeds 1 --time-budget-hours 1 --job-timeout-minutes 20 --force
+python experiments/step12_lkh_portfolio.py --configs A_default_r3 --seeds 1-3 --time-budget-hours 1 --job-timeout-minutes 20 --resume
 ```
 
 ## Summary
@@ -13,20 +13,21 @@ best_verified_length: 73934
 best_config_id: A_default_r3
 best_seed: 1
 improved_current_upper_bound: false
-jobs_completed: 1
+jobs_completed: 3
 jobs_failed: 0
 jobs_timeout: 0
 ```
 
 ## Length distribution
 
-- 73934: 1
+- 73934: 2
+- 73941: 1
 
 ## Runtime by config
 
 | config | count | avg seconds | min | max |
 |---|---:|---:|---:|---:|
-| A_default_r3 | 1 | 80.617 | 80.617 | 80.617 |
+| A_default_r3 | 3 | 58.124 | 41.936 | 81.130 |
 
 ## Current interval
 
