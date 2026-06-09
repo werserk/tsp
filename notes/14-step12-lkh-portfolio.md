@@ -27,7 +27,7 @@ jobs_timeout: 0
 
 | config | count | avg seconds | min | max |
 |---|---:|---:|---:|---:|
-| A_default_r3 | 3 | 58.124 | 41.936 | 81.130 |
+| A_default_r3 | 3 | 59.873 | 42.674 | 83.964 |
 
 ## Current interval
 
