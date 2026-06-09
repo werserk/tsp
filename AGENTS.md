@@ -11,6 +11,7 @@ Short instructions for coding agents working on this TSP project.
 - `notes/03-step2-core-infrastructure.md` — matrix loader, validation, tour length contract, and smoke checks.
 - `notes/04-step3-nearest-neighbor-baseline.md` — first valid upper bound from multi-start nearest neighbor.
 - `notes/05-step4-two-opt-improvement.md` — 2-opt local search improvement and current best upper bound.
+- `notes/06-step5-lower-bound-mst-one-tree.md` — MST / 1-tree lower-bound proof and current optimality interval.
 - `data/raw/matrices/README.md` — observed matrix formats and canonical challenge size.
 - `references/lecturer-code/` — lecturer-provided Python examples; read as reference, do not edit in place.
 

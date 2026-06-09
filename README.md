@@ -39,18 +39,27 @@ references/
 - `notes/03-step2-core-infrastructure.md` — загрузчик матриц, валидация tour, пересчёт длины, smoke checks.
 - `notes/04-step3-nearest-neighbor-baseline.md` — первый валидный upper bound: nearest-neighbor multi-start, length `88839`.
 - `notes/05-step4-two-opt-improvement.md` — 2-opt improvement, новый upper bound `80585`.
+- `notes/06-step5-lower-bound-mst-one-tree.md` — MST / 1-tree lower bound, proof and current interval.
 
-## Текущий лучший upper bound
+## Текущие bounds
 
 ```txt
-algorithm: two_opt_first_improvement
-length: 80585
-improvement_vs_step3: 8254
-artifact: results/best/step4-two-opt-best.json
+lower_bound: 62838
+upper_bound: 80585
+interval: 62838 <= OPT <= 80585
+absolute_gap: 17747
+relative_gap: 22.02%
+```
+
+Artifacts:
+
+```txt
+upper: results/best/step4-two-opt-best.json
+lower: results/best/step5-lower-bound-baseline.json
 ```
 
 ## Следующий шаг
 
-1. Либо усилить upper bound: multi-start nearest-neighbor → 2-opt для каждого старта.
-2. Либо начать lower bound baseline: MST / 1-tree.
-3. Каждый новый best сохранять в `results/best/` и пересчитывать через `tour_length`.
+1. Усилить upper bound: multi-start nearest-neighbor → 2-opt для каждого старта.
+2. Или усилить lower bound: several-root 1-tree / Held-Karp-style penalties.
+3. Каждый новый best сохранять в `results/best/` и пересчитывать/обосновывать независимо.

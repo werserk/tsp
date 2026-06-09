@@ -1,0 +1,30 @@
+{
+  "algorithm": "one_tree_lower_bound",
+  "input_file": "data/raw/matrices/M.txt",
+  "n": 1114,
+  "root_city": 0,
+  "mst_without_root_weight": 62808,
+  "two_cheapest_root_edges": [
+    [
+      0,
+      521,
+      14
+    ],
+    [
+      0,
+      151,
+      16
+    ]
+  ],
+  "lower_bound": 62838,
+  "upper_bound": 80585,
+  "absolute_gap": 17747,
+  "relative_gap": 0.2202270894086989,
+  "upper_bound_artifact": "results/best/step4-two-opt-best.json",
+  "proof_note": "notes/06-step5-lower-bound-mst-one-tree.md",
+  "metadata": {
+    "proof": "mst_without_root_plus_two_cheapest_root_edges"
+  },
+  "command": "python experiments/step5_lower_bound_baseline.py",
+  "created_at": "2026-06-09T15:05:55.309395+00:00"
+}
