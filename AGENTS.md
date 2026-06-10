@@ -21,12 +21,15 @@ Short instructions for coding agents working on this TSP project.
 - `notes/13-step11-lkh-multiseed.md` — LKH multi-seed upper-bound search; seeds `1-20` did not improve `73934`.
 - `notes/14-step12-lkh-portfolio-plan.md` — bounded LKH portfolio runner implementation plan.
 - `notes/14-step12-lkh-portfolio.md` — Step 12 smoke portfolio report; use `experiments/step12_lkh_portfolio.py` for ETA/progress/resume waves.
+- `notes/15-step13-held-karp-decay-099-lower-bound.md` — stronger Held-Karp slow-decay lower bound; current best lower bound `72711.817690`.
+- `notes/17-step14-concorde-no-branch-lower-bound.md` — Concorde `-B` no-branch cutting-plane bound; current best lower bound `73932.094971`.
 - `docs/playbooks/tsp-lower-bound-improvement.md` — required playbook for metric-driven lower-bound improvement cycles.
 - `docs/playbooks/tsp-upper-bound-improvement.md` — required playbook for metric-driven upper-bound improvement cycles.
 - `docs/playbooks/tsp-experiment-protocol.md` — experiment artifact, verification, and promotion protocol.
 - `docs/playbooks/tsp-result-review-gate.md` — review gate before claiming a new best bound.
 - `docs/goals/improve-tsp-lower-bound.goal.md` — ready `/goal` prompt for aggressive-local lower-bound improvement.
 - `docs/goals/improve-tsp-upper-bound.goal.md` — ready `/goal` prompt for aggressive-local upper-bound improvement.
+- `notes/16-step14-lower-bound-next-research-plan.md` — next LB plan: Held-Karp schedule portfolio plus Concorde/cutting-plane research tracks.
 - `data/raw/matrices/README.md` — observed matrix formats and canonical challenge size.
 - `references/lecturer-code/` — lecturer-provided Python examples; read as reference, do not edit in place.
 

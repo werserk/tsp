@@ -1,0 +1,50 @@
+{
+  "type": "lower_bound",
+  "algorithm": "concorde_no_branch_cutting_plane",
+  "method": "Concorde -B no-branch root/cutting-plane lower-bound extraction",
+  "input_matrix": "data/raw/matrices/M.txt",
+  "tsplib_input": "data/processed/M-full-matrix.tsp",
+  "n": 1114,
+  "lower_bound": 73932.094971,
+  "previous_lower_bound": 72711.81768955325,
+  "upper_bound": 73934,
+  "absolute_gap": 1.9050290000013774,
+  "relative_gap_to_lower": 2.576728010681462e-05,
+  "relative_gap_to_upper": 2.576661617119833e-05,
+  "integer_lower_bound": 73933,
+  "concorde_binary": "tools/concorde-bin/concorde",
+  "command": "tools/concorde-bin/concorde -B -s 10 -u 73934 -n results/runs/step14-concorde-root-problem -X results/runs/step14-concorde-root.x -o results/runs/step14-concorde-tour.out data/processed/M-full-matrix.tsp",
+  "log_path": "results/runs/step14-concorde-root.log",
+  "generated_files": {
+    "fractional_solution": "results/runs/step14-concorde-root.x",
+    "tour_output": null
+  },
+  "runtime_seconds": 28.984935540996958,
+  "concorde_log_summary": {
+    "final_lower_bound": 73932.094971,
+    "final_upper_bound": 73934.0,
+    "exact_lower_bound": 73932.094971,
+    "lp_rows": 1657,
+    "lp_columns": 3011,
+    "lp_nonzeros": 22234,
+    "optimal_solution": null,
+    "branch_and_bound_nodes": null
+  },
+  "mapping_verification": {
+    "format": "TSPLIB_EXPLICIT_FULL_MATRIX",
+    "dimension": 1114,
+    "entries_checked": 1240996,
+    "matches_source_matrix": true
+  },
+  "tour_verification": null,
+  "review_gate": {
+    "decision": "promote",
+    "lower_bound_candidate": 73932.094971,
+    "current_lower_bound": 72711.81768955325,
+    "current_upper_bound": 73934,
+    "strict_improvement": true,
+    "lower_bound_le_upper_bound": true
+  },
+  "proof_sketch": "Concorde -B stops after root/cutting-plane processing without branching. The reported LP lower bound is a relaxation/cutting-plane lower bound for the symmetric TSP instance, so it is <= OPT if the TSPLIB mapping is correct. The log is preserved and parsed separately from tour/upper-bound fields.",
+  "created_at": "2026-06-10T14:25:46.782304+00:00"
+}

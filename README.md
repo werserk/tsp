@@ -52,34 +52,37 @@ docs/
 - `notes/13-step11-lkh-multiseed.md` — LKH seeds `1-20`, `RUNS=1`; no improvement over `73934`.
 - `notes/14-step12-lkh-portfolio-plan.md` — bounded LKH portfolio runner plan with ETA/progress/resume.
 - `notes/14-step12-lkh-portfolio.md` — Step 12 smoke portfolio report; runner ready for longer quality-first waves.
+- `notes/15-step13-held-karp-decay-099-lower-bound.md` — stronger Held-Karp slow-decay lower bound, new lower bound `72711.817690`.
+- `notes/17-step14-concorde-no-branch-lower-bound.md` — Concorde `-B` no-branch cutting-plane lower bound, new lower bound `73932.094971`.
 - `docs/playbooks/tsp-lower-bound-improvement.md` — metric-driven lower-bound improvement cycle; current LB target and priority tracks.
 - `docs/playbooks/tsp-upper-bound-improvement.md` — metric-driven upper-bound improvement cycle; current UB target and priority tracks.
 - `docs/playbooks/tsp-experiment-protocol.md` — reproducible experiment/artifact/verification protocol.
 - `docs/playbooks/tsp-result-review-gate.md` — promotion gate before claiming a new best bound.
 - `docs/goals/improve-tsp-lower-bound.goal.md` — ready `/goal` prompt for aggressive-local LB improvement.
 - `docs/goals/improve-tsp-upper-bound.goal.md` — ready `/goal` prompt for aggressive-local UB improvement.
+- `notes/16-step14-lower-bound-next-research-plan.md` — next LB plan: Held-Karp schedule portfolio plus Concorde/cutting-plane research tracks.
 
 ## Текущие bounds
 
 ```txt
-lower_bound: 65493.437369
+lower_bound: 73932.094971
 upper_bound: 73934
-interval: 65493.437369 <= OPT <= 73934
-integer interval: 65494 <= OPT <= 73934
-absolute_gap: 8440.562631
-relative_gap: 11.42%
+interval: 73932.094971 <= OPT <= 73934
+integer interval: 73933 <= OPT <= 73934
+absolute_gap: 1.905029
+relative_gap_to_lower: 0.002577%
+relative_gap_to_upper: 0.002577%
 ```
 
 Artifacts:
 
 ```txt
 upper: results/best/step6-lkh-best.json
-lower: results/best/step9-held-karp-one-tree.json
+lower: results/best/step14-concorde-no-branch-lower-bound.json
 ```
 
 ## Следующий шаг
 
-1. Запустить bounded Step 12 LKH portfolio wave через `experiments/step12_lkh_portfolio.py` с `--time-budget-hours` и `--job-timeout-minutes`.
-2. Если portfolio найдёт `< 73934`, сохранить новый verified best в `results/best/step12-lkh-portfolio-best.json` и обновить interval.
-3. Если improvement нет, выбрать 1-2 лучших configs по `results/runs/step12-lkh-portfolio-report.html` для targeted long wave или переключиться на финальное объяснение.
-4. Каждый новый best сохранять в `results/best/` и пересчитывать/обосновывать независимо.
+1. Попробовать full Concorde branch-and-cut с incumbent `-u 73934`, чтобы закрыть оставшийся integer gap `73933..73934`.
+2. Параллельно можно искать upper-bound improvement `< 73934`; теперь достаточно улучшения на `1`.
+3. Каждый новый best сохранять в `results/best/` и пересчитывать/обосновывать независимо.

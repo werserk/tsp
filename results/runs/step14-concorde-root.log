@@ -1,0 +1,58 @@
+tools/concorde-bin/concorde -B -s 10 -u 73934 -n results/runs/step14-concorde-root-problem -X results/runs/step14-concorde-root.x -o results/runs/step14-concorde-tour.out data/processed/M-full-matrix.tsp
+Host: pc  Current process id: 3992494
+Using random seed 10
+Problem Name: hse1114
+Problem Type: TSP
+Exported from project distance matrix
+Number of Nodes: 1114
+Explicit Lengths (CC_MATRIXNORM)
+  LP Value  1: 70037.125000  (0.08 seconds)
+  LP Value  2: 73159.689815  (0.19 seconds)
+  LP Value  3: 73622.080885  (0.47 seconds)
+  LP Value  4: 73718.579583  (0.75 seconds)
+  LP Value  5: 73777.615556  (1.02 seconds)
+  LP Value  6: 73821.973996  (1.31 seconds)
+  LP Value  7: 73850.617447  (1.82 seconds)
+  LP Value  8: 73863.176724  (4.07 seconds)
+  LP Value  9: 73873.249876  (4.96 seconds)
+  LP Value 10: 73891.018740  (6.42 seconds)
+  LP Value 11: 73899.422852  (7.51 seconds)
+  LP Value 12: 73901.826833  (8.77 seconds)
+New lower bound: 73901.826833
+  LP Value  1: 73905.799008  (9.28 seconds)
+  LP Value  2: 73912.107603  (10.03 seconds)
+  LP Value  3: 73916.745636  (10.64 seconds)
+  LP Value  4: 73920.384067  (11.14 seconds)
+  LP Value  5: 73921.791503  (11.67 seconds)
+  LP Value  6: 73922.443966  (12.13 seconds)
+  LP Value  7: 73923.083067  (12.47 seconds)
+  LP Value  8: 73924.482329  (12.93 seconds)
+  LP Value  9: 73925.030844  (13.30 seconds)
+  LP Value 10: 73925.509622  (13.70 seconds)
+  LP Value 11: 73925.780206  (13.99 seconds)
+  LP Value 12: 73926.171941  (14.32 seconds)
+  LP Value 13: 73927.680556  (14.86 seconds)
+  LP Value 14: 73929.418937  (15.52 seconds)
+  LP Value 15: 73930.056651  (16.03 seconds)
+  LP Value 16: 73930.434316  (16.75 seconds)
+  LP Value 17: 73930.714971  (17.15 seconds)
+  LP Value 18: 73931.000000  (17.92 seconds)
+  LP Value 19: 73931.188094  (18.78 seconds)
+  LP Value 20: 73931.305463  (19.46 seconds)
+  LP Value 21: 73931.368216  (20.17 seconds)
+  LP Value 22: 73931.447843  (20.87 seconds)
+  LP Value 23: 73931.540444  (21.58 seconds)
+  LP Value 24: 73931.640769  (22.42 seconds)
+  LP Value 25: 73931.674053  (23.20 seconds)
+New lower bound: 73931.674053
+  LP Value  1: 73932.017428  (23.54 seconds)
+  LP Value  2: 73932.076749  (24.18 seconds)
+  LP Value  3: 73932.094971  (24.81 seconds)
+New lower bound: 73932.094971
+Final lower bound 73932.094971, upper bound 73934.000000
+Dumping the x vector to results/runs/step14-concorde-root.x ... 3011 edges, 1511 nonzero DONE
+Exact lower bound: 73932.094971
+DIFF: 0.000000
+Time for Total: 24.98 seconds (24.98 total in 1 calls)
+Final LP has 1657 rows, 3011 columns, 22234 nonzeros
+Total Running Time: 25.40 (seconds)
