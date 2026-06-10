@@ -23,6 +23,7 @@ from experiments.step12_lkh_portfolio import (
     format_duration,
     html_report,
     job_id,
+    ledger_record,
     markdown_report,
     parse_seed_spec,
     plan_remaining_jobs,
@@ -145,6 +146,37 @@ def test_best_artifact_policy_and_payload():
     assert payload["absolute_gap"] == pytest.approx(8439.562631)
 
 
+def test_ledger_record_is_compact_but_keeps_progress_fields():
+    full_record = {
+        "job_id": "A__seed_1",
+        "job_index": 1,
+        "jobs_total": 120,
+        "config_id": "A",
+        "seed": 1,
+        "status": "done",
+        "solver_length": 73934,
+        "verified_length": 73934,
+        "best_so_far": 73934,
+        "runtime_seconds": 10.0,
+        "elapsed_seconds": 10.0,
+        "eta_seconds": 1190.0,
+        "tour": [0, 2, 1],
+        "lkh_stdout_tail": "verbose solver output",
+        "command": "LKH a.par",
+        "parameter_file": "a.par",
+        "output_tour_file": "a.tour",
+    }
+
+    compact = ledger_record(full_record)
+
+    assert compact["job_id"] == "A__seed_1"
+    assert compact["jobs_total"] == 120
+    assert compact["verified_length"] == 73934
+    assert compact["parameter_file"] == "a.par"
+    assert "tour" not in compact
+    assert "lkh_stdout_tail" not in compact
+    assert "command" not in compact
+
 def test_result_and_calibration_payloads_are_compact():
     records = [
         {
@@ -174,10 +206,11 @@ def test_result_and_calibration_payloads_are_compact():
         time_budget_hours=2.0,
         job_timeout_minutes=20.0,
         lower_bound=65493.437369,
+        jobs_planned=120,
     )
 
     assert payload["algorithm"] == "lkh_2_0_11_portfolio"
-    assert payload["jobs_planned"] == 2
+    assert payload["jobs_planned"] == 120
     assert payload["jobs_completed"] == 1
     assert payload["jobs_failed"] == 1
     assert payload["best_verified_length"] == 73934

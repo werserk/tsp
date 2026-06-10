@@ -1,0 +1,56 @@
+{
+  "type": "exact_closure_attempt",
+  "algorithm": "concorde_branch_and_cut",
+  "input_matrix": "data/raw/matrices/M.txt",
+  "tsplib_input": "data/processed/M-full-matrix.tsp",
+  "log_path": "results/runs/step15-concorde-exact.log",
+  "tour_path": "results/runs/step15-concorde-exact.tour",
+  "current_lower_bound_before_step15": 73932.094971,
+  "incumbent_upper_bound": 73934,
+  "parsed": {
+    "final_bounds": [
+      [
+        73930.203925,
+        73934.0
+      ]
+    ],
+    "exact_lower_bounds": [
+      73930.203925
+    ],
+    "branch_lower_bounds": [
+      73930.203925,
+      73930.734375
+    ],
+    "optimal_solutions": [
+      73934.0
+    ],
+    "lp_shapes": [
+      {
+        "rows": 1697,
+        "columns": 2282,
+        "nonzeros": 26534
+      }
+    ],
+    "bbnodes": [
+      3
+    ],
+    "new_upperbounds": [],
+    "best_parsed_lower_bound": 73930.734375,
+    "best_parsed_upper_bound": 73934.0,
+    "explicit_optimality": true,
+    "line_count": 84
+  },
+  "tour_verification": {
+    "path": "results/runs/step15-concorde-exact.tour",
+    "city_count": 1114,
+    "verified_length": 74188,
+    "is_73933": false,
+    "is_73934": false
+  },
+  "closure": {
+    "success": true,
+    "case": "C",
+    "reason": "Concorde explicitly proved optimality of 73934"
+  },
+  "created_at": "2026-06-10T14:44:47.554839+00:00"
+}

@@ -1,0 +1,354 @@
+{
+  "algorithm": "lkh_2_0_11_targeted_wave",
+  "type": "upper_bound_run",
+  "input_matrix": "data/raw/matrices/M.txt",
+  "tsplib_file": "data/processed/challenge-full-matrix.tsp",
+  "configs": [
+    {
+      "config_id": "E_patch_r3",
+      "parameters": {
+        "RUNS": "3",
+        "PATCHING_C": "3",
+        "PATCHING_A": "2"
+      }
+    },
+    {
+      "config_id": "F_move5_r3",
+      "parameters": {
+        "RUNS": "3",
+        "MOVE_TYPE": "5"
+      }
+    },
+    {
+      "config_id": "G_backtracking_r3",
+      "parameters": {
+        "RUNS": "3",
+        "BACKTRACKING": "YES"
+      }
+    },
+    {
+      "config_id": "H_gain_no_r3",
+      "parameters": {
+        "RUNS": "3",
+        "GAIN_CRITERION": "NO"
+      }
+    }
+  ],
+  "command": "PYTHONUNBUFFERED=1 python experiments/step13_lkh_targeted_wave.py --configs E_patch_r3,F_move5_r3,G_backtracking_r3,H_gain_no_r3 --seeds 1-5 --job-timeout-minutes 20 --resume 2>&1 | tee results/runs/step13-lkh-targeted-wave.log",
+  "status": "stopped_after_non_improving_evidence",
+  "stop_reason": "16 completed jobs found no strict improvement; H_gain_no was slower and worse on first seed; process stopped to preserve local compute for stronger candidates.",
+  "jobs_completed": 16,
+  "jobs_failed": 0,
+  "jobs_timeout": 0,
+  "best_verified_length": 73934,
+  "best_record": {
+    "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-E_patch_r3-seed-1.par",
+    "config_id": "E_patch_r3",
+    "created_at": "2026-06-10T13:28:30.445556+00:00",
+    "job_id": "E_patch_r3__seed_1",
+    "output_tour_file": "data/processed/lkh-step13-E_patch_r3-seed-1.tour",
+    "parameter_file": "data/processed/lkh-step13-E_patch_r3-seed-1.par",
+    "parameters": {
+      "PATCHING_A": "2",
+      "PATCHING_C": "3",
+      "RUNS": "3"
+    },
+    "runtime_seconds": 119.21641,
+    "seed": 1,
+    "solver_length": 73934,
+    "status": "done",
+    "verified_length": 73934
+  },
+  "improved_current_upper_bound": false,
+  "current_upper_bound": 73934,
+  "lower_bound": 65493.4373688764,
+  "absolute_gap_at_best": 8440.562631123597,
+  "relative_gap_to_lower_at_best": 0.1288764641193607,
+  "length_distribution": {
+    "73934": 12,
+    "73941": 3,
+    "73947": 1
+  },
+  "records": [
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-E_patch_r3-seed-1.par",
+      "config_id": "E_patch_r3",
+      "created_at": "2026-06-10T13:28:30.445556+00:00",
+      "job_id": "E_patch_r3__seed_1",
+      "output_tour_file": "data/processed/lkh-step13-E_patch_r3-seed-1.tour",
+      "parameter_file": "data/processed/lkh-step13-E_patch_r3-seed-1.par",
+      "parameters": {
+        "PATCHING_A": "2",
+        "PATCHING_C": "3",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 119.21641,
+      "seed": 1,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-E_patch_r3-seed-2.par",
+      "config_id": "E_patch_r3",
+      "created_at": "2026-06-10T13:29:58.646238+00:00",
+      "job_id": "E_patch_r3__seed_2",
+      "output_tour_file": "data/processed/lkh-step13-E_patch_r3-seed-2.tour",
+      "parameter_file": "data/processed/lkh-step13-E_patch_r3-seed-2.par",
+      "parameters": {
+        "PATCHING_A": "2",
+        "PATCHING_C": "3",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 88.108857,
+      "seed": 2,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-E_patch_r3-seed-3.par",
+      "config_id": "E_patch_r3",
+      "created_at": "2026-06-10T13:31:09.506970+00:00",
+      "job_id": "E_patch_r3__seed_3",
+      "output_tour_file": "data/processed/lkh-step13-E_patch_r3-seed-3.tour",
+      "parameter_file": "data/processed/lkh-step13-E_patch_r3-seed-3.par",
+      "parameters": {
+        "PATCHING_A": "2",
+        "PATCHING_C": "3",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 70.763547,
+      "seed": 3,
+      "solver_length": 73947,
+      "status": "done",
+      "verified_length": 73947
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-E_patch_r3-seed-4.par",
+      "config_id": "E_patch_r3",
+      "created_at": "2026-06-10T13:32:17.228319+00:00",
+      "job_id": "E_patch_r3__seed_4",
+      "output_tour_file": "data/processed/lkh-step13-E_patch_r3-seed-4.tour",
+      "parameter_file": "data/processed/lkh-step13-E_patch_r3-seed-4.par",
+      "parameters": {
+        "PATCHING_A": "2",
+        "PATCHING_C": "3",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 67.628563,
+      "seed": 4,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-E_patch_r3-seed-5.par",
+      "config_id": "E_patch_r3",
+      "created_at": "2026-06-10T13:33:41.766423+00:00",
+      "job_id": "E_patch_r3__seed_5",
+      "output_tour_file": "data/processed/lkh-step13-E_patch_r3-seed-5.tour",
+      "parameter_file": "data/processed/lkh-step13-E_patch_r3-seed-5.par",
+      "parameters": {
+        "PATCHING_A": "2",
+        "PATCHING_C": "3",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 84.435958,
+      "seed": 5,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-F_move5_r3-seed-1.par",
+      "config_id": "F_move5_r3",
+      "created_at": "2026-06-10T13:35:09.145461+00:00",
+      "job_id": "F_move5_r3__seed_1",
+      "output_tour_file": "data/processed/lkh-step13-F_move5_r3-seed-1.tour",
+      "parameter_file": "data/processed/lkh-step13-F_move5_r3-seed-1.par",
+      "parameters": {
+        "MOVE_TYPE": "5",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 87.281132,
+      "seed": 1,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-F_move5_r3-seed-2.par",
+      "config_id": "F_move5_r3",
+      "created_at": "2026-06-10T13:36:04.394714+00:00",
+      "job_id": "F_move5_r3__seed_2",
+      "output_tour_file": "data/processed/lkh-step13-F_move5_r3-seed-2.tour",
+      "parameter_file": "data/processed/lkh-step13-F_move5_r3-seed-2.par",
+      "parameters": {
+        "MOVE_TYPE": "5",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 55.156145,
+      "seed": 2,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-F_move5_r3-seed-3.par",
+      "config_id": "F_move5_r3",
+      "created_at": "2026-06-10T13:36:48.256140+00:00",
+      "job_id": "F_move5_r3__seed_3",
+      "output_tour_file": "data/processed/lkh-step13-F_move5_r3-seed-3.tour",
+      "parameter_file": "data/processed/lkh-step13-F_move5_r3-seed-3.par",
+      "parameters": {
+        "MOVE_TYPE": "5",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 43.762614,
+      "seed": 3,
+      "solver_length": 73941,
+      "status": "done",
+      "verified_length": 73941
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-F_move5_r3-seed-4.par",
+      "config_id": "F_move5_r3",
+      "created_at": "2026-06-10T13:38:06.592165+00:00",
+      "job_id": "F_move5_r3__seed_4",
+      "output_tour_file": "data/processed/lkh-step13-F_move5_r3-seed-4.tour",
+      "parameter_file": "data/processed/lkh-step13-F_move5_r3-seed-4.par",
+      "parameters": {
+        "MOVE_TYPE": "5",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 78.243827,
+      "seed": 4,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-F_move5_r3-seed-5.par",
+      "config_id": "F_move5_r3",
+      "created_at": "2026-06-10T13:39:12.272266+00:00",
+      "job_id": "F_move5_r3__seed_5",
+      "output_tour_file": "data/processed/lkh-step13-F_move5_r3-seed-5.tour",
+      "parameter_file": "data/processed/lkh-step13-F_move5_r3-seed-5.par",
+      "parameters": {
+        "MOVE_TYPE": "5",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 65.588326,
+      "seed": 5,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-G_backtracking_r3-seed-1.par",
+      "config_id": "G_backtracking_r3",
+      "created_at": "2026-06-10T13:40:54.118474+00:00",
+      "job_id": "G_backtracking_r3__seed_1",
+      "output_tour_file": "data/processed/lkh-step13-G_backtracking_r3-seed-1.tour",
+      "parameter_file": "data/processed/lkh-step13-G_backtracking_r3-seed-1.par",
+      "parameters": {
+        "BACKTRACKING": "YES",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 101.752399,
+      "seed": 1,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-G_backtracking_r3-seed-2.par",
+      "config_id": "G_backtracking_r3",
+      "created_at": "2026-06-10T13:42:07.153425+00:00",
+      "job_id": "G_backtracking_r3__seed_2",
+      "output_tour_file": "data/processed/lkh-step13-G_backtracking_r3-seed-2.tour",
+      "parameter_file": "data/processed/lkh-step13-G_backtracking_r3-seed-2.par",
+      "parameters": {
+        "BACKTRACKING": "YES",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 72.949952,
+      "seed": 2,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-G_backtracking_r3-seed-3.par",
+      "config_id": "G_backtracking_r3",
+      "created_at": "2026-06-10T13:43:09.435150+00:00",
+      "job_id": "G_backtracking_r3__seed_3",
+      "output_tour_file": "data/processed/lkh-step13-G_backtracking_r3-seed-3.tour",
+      "parameter_file": "data/processed/lkh-step13-G_backtracking_r3-seed-3.par",
+      "parameters": {
+        "BACKTRACKING": "YES",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 62.18099,
+      "seed": 3,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-G_backtracking_r3-seed-4.par",
+      "config_id": "G_backtracking_r3",
+      "created_at": "2026-06-10T13:44:34.962702+00:00",
+      "job_id": "G_backtracking_r3__seed_4",
+      "output_tour_file": "data/processed/lkh-step13-G_backtracking_r3-seed-4.tour",
+      "parameter_file": "data/processed/lkh-step13-G_backtracking_r3-seed-4.par",
+      "parameters": {
+        "BACKTRACKING": "YES",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 85.435947,
+      "seed": 4,
+      "solver_length": 73934,
+      "status": "done",
+      "verified_length": 73934
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-G_backtracking_r3-seed-5.par",
+      "config_id": "G_backtracking_r3",
+      "created_at": "2026-06-10T13:45:41.987597+00:00",
+      "job_id": "G_backtracking_r3__seed_5",
+      "output_tour_file": "data/processed/lkh-step13-G_backtracking_r3-seed-5.tour",
+      "parameter_file": "data/processed/lkh-step13-G_backtracking_r3-seed-5.par",
+      "parameters": {
+        "BACKTRACKING": "YES",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 66.93758,
+      "seed": 5,
+      "solver_length": 73941,
+      "status": "done",
+      "verified_length": 73941
+    },
+    {
+      "command": "/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/LKH-2.0.11/LKH /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/lkh-step13-H_gain_no_r3-seed-1.par",
+      "config_id": "H_gain_no_r3",
+      "created_at": "2026-06-10T13:49:12.642998+00:00",
+      "job_id": "H_gain_no_r3__seed_1",
+      "output_tour_file": "data/processed/lkh-step13-H_gain_no_r3-seed-1.tour",
+      "parameter_file": "data/processed/lkh-step13-H_gain_no_r3-seed-1.par",
+      "parameters": {
+        "GAIN_CRITERION": "NO",
+        "RUNS": "3"
+      },
+      "runtime_seconds": 210.569339,
+      "seed": 1,
+      "solver_length": 73941,
+      "status": "done",
+      "verified_length": 73941
+    }
+  ],
+  "progress_ledger": "results/runs/step13-lkh-targeted-progress.jsonl",
+  "log": "results/runs/step13-lkh-targeted-wave.log",
+  "created_at": "2026-06-10T13:56:50.552437+00:00"
+}

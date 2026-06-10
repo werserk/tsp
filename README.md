@@ -61,28 +61,31 @@ docs/
 - `docs/goals/improve-tsp-lower-bound.goal.md` — ready `/goal` prompt for aggressive-local LB improvement.
 - `docs/goals/improve-tsp-upper-bound.goal.md` — ready `/goal` prompt for aggressive-local UB improvement.
 - `notes/16-step14-lower-bound-next-research-plan.md` — next LB plan: Held-Karp schedule portfolio plus Concorde/cutting-plane research tracks.
+- `notes/17-step14-research2-concorde-cutting-plane-go-nogo.md` — Concorde/cutting-plane go/no-go memo.
+- `notes/18-step15-concorde-exact-closure.md` — full Concorde branch-and-cut closure; proved `OPT = 73934`.
 
 ## Текущие bounds
 
 ```txt
-lower_bound: 73932.094971
+lower_bound: 73934
 upper_bound: 73934
-interval: 73932.094971 <= OPT <= 73934
-integer interval: 73933 <= OPT <= 73934
-absolute_gap: 1.905029
-relative_gap_to_lower: 0.002577%
-relative_gap_to_upper: 0.002577%
+interval: 73934 <= OPT <= 73934
+integer interval: 73934 <= OPT <= 73934
+absolute_gap: 0
+relative_gap_to_lower: 0.0%
+relative_gap_to_upper: 0.0%
+optimum: 73934
 ```
 
 Artifacts:
 
 ```txt
 upper: results/best/step6-lkh-best.json
-lower: results/best/step14-concorde-no-branch-lower-bound.json
+lower/optimality: results/best/step15-concorde-optimality.json
 ```
 
 ## Следующий шаг
 
-1. Попробовать full Concorde branch-and-cut с incumbent `-u 73934`, чтобы закрыть оставшийся integer gap `73933..73934`.
-2. Параллельно можно искать upper-bound improvement `< 73934`; теперь достаточно улучшения на `1`.
-3. Каждый новый best сохранять в `results/best/` и пересчитывать/обосновывать независимо.
+1. Финализировать короткое объяснение: LKH дал verified tour `73934`, Concorde full branch-and-cut доказал optimality `73934`.
+2. Не заменять incumbent на `results/runs/step15-concorde-exact.tour`: этот solver-output tour не прошёл project verifier.
+3. Для презентации использовать `results/best/step15-concorde-optimality.json` и `notes/18-step15-concorde-exact-closure.md`.

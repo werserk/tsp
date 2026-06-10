@@ -266,6 +266,7 @@ def result_payload(
     time_budget_hours: float | None,
     job_timeout_minutes: float,
     lower_bound: float,
+    jobs_planned: int | None = None,
 ) -> dict[str, Any]:
     done = [record for record in records if record.get("status") == "done"]
     failed = [record for record in records if record.get("status") == "failed"]
@@ -283,7 +284,7 @@ def result_payload(
         "seed_spec": seed_spec,
         "time_budget_hours": time_budget_hours,
         "job_timeout_minutes": job_timeout_minutes,
-        "jobs_planned": len(records),
+        "jobs_planned": jobs_planned if jobs_planned is not None else len(records),
         "jobs_completed": len(done),
         "jobs_failed": len(failed),
         "jobs_timeout": len(timed_out),
@@ -369,6 +370,14 @@ def compact_record(record: dict[str, Any] | None) -> dict[str, Any] | None:
         "created_at",
     ]
     return {key: record[key] for key in keep if key in record}
+
+
+def ledger_record(record: dict[str, Any]) -> dict[str, Any]:
+    """Return the append-only progress row without bulky solver payloads."""
+
+    compact = compact_record(record)
+    assert compact is not None
+    return compact
 
 
 def markdown_report(payload: dict[str, Any]) -> str:
@@ -686,7 +695,7 @@ def run_jobs(
         except Exception as exc:
             raw_record = failure_record(job, status="failed", error=repr(exc), runtime_seconds=0.0)
             record = enrich_record(raw_record, records_so_far=records, started_at=started_at)
-        append_ledger_record(ROOT / PROGRESS_PATH, record)
+        append_ledger_record(ROOT / PROGRESS_PATH, ledger_record(record))
         records.append(record)
         print_progress(record, budget_seconds=budget_seconds)
     return records
@@ -749,6 +758,7 @@ def main(argv: list[str] | None = None) -> None:
             time_budget_hours=args.time_budget_hours,
             job_timeout_minutes=args.job_timeout_minutes,
             lower_bound=lower_bound,
+            jobs_planned=len(jobs),
         )
         write_run_artifacts(payload)
         print(f"best_verified_length={payload['best_verified_length']}")

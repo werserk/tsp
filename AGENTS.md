@@ -23,6 +23,7 @@ Short instructions for coding agents working on this TSP project.
 - `notes/14-step12-lkh-portfolio.md` — Step 12 smoke portfolio report; use `experiments/step12_lkh_portfolio.py` for ETA/progress/resume waves.
 - `notes/15-step13-held-karp-decay-099-lower-bound.md` — stronger Held-Karp slow-decay lower bound; current best lower bound `72711.817690`.
 - `notes/17-step14-concorde-no-branch-lower-bound.md` — Concorde `-B` no-branch cutting-plane bound; current best lower bound `73932.094971`.
+- `notes/18-step15-concorde-exact-closure.md` — full Concorde branch-and-cut closure; proved optimum `73934`.
 - `docs/playbooks/tsp-lower-bound-improvement.md` — required playbook for metric-driven lower-bound improvement cycles.
 - `docs/playbooks/tsp-upper-bound-improvement.md` — required playbook for metric-driven upper-bound improvement cycles.
 - `docs/playbooks/tsp-experiment-protocol.md` — experiment artifact, verification, and promotion protocol.

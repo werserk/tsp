@@ -1,0 +1,38 @@
+{
+  "type": "optimality_certificate",
+  "algorithm": "concorde_branch_and_cut",
+  "input_matrix": "data/raw/matrices/M.txt",
+  "tsplib_input": "data/processed/M-full-matrix.tsp",
+  "optimum": 73934,
+  "lower_bound": 73934,
+  "upper_bound": 73934,
+  "previous_lower_artifact": "results/best/step14-concorde-no-branch-lower-bound.json",
+  "previous_lower_bound": 73932.094971,
+  "incumbent_upper_artifact": "results/best/step6-lkh-best.json",
+  "incumbent_upper_verified_length": 73934,
+  "concorde_log": "results/runs/step15-concorde-exact.log",
+  "concorde_summary": "results/runs/step15-concorde-exact-summary.json",
+  "concorde_command": "cd results/runs && PYTHONUNBUFFERED=1 timeout 4h ../../tools/concorde-bin/concorde -u 73934 -s 1 -X step15-concorde-exact.x -o step15-concorde-exact.tour ../../data/processed/M-full-matrix.tsp 2>&1 | tee step15-concorde-exact.log",
+  "parsed_fields": {
+    "final_lower_bound": 73930.203925,
+    "final_upper_bound": 73934.0,
+    "exact_lower_bound": 73930.203925,
+    "best_branch_lower_bound": 73930.734375,
+    "optimal_solution": 73934.0,
+    "bbnodes": 3,
+    "final_lp_rows": 1697,
+    "final_lp_columns": 2282,
+    "final_lp_nonzeros": 26534,
+    "total_running_time_seconds": 36.11
+  },
+  "closure_case": "C",
+  "closure_reason": "Concorde full branch-and-cut explicitly reported Optimal Solution: 73934.00; existing LKH incumbent tour length 73934 was independently verified with project tour_length(..., validate=True).",
+  "concorde_output_tour_verification": {
+    "path": "results/runs/step15-concorde-exact.tour",
+    "verified_length": 74188,
+    "accepted_as_incumbent": false,
+    "note": "Preserved as solver output only; it does not replace the verified LKH incumbent artifact."
+  },
+  "note": "notes/18-step15-concorde-exact-closure.md",
+  "created_at": "2026-06-10T14:43:00Z"
+}
