@@ -22,6 +22,9 @@ notes/                # рабочие заметки, план объяснен
 references/
   lecturer-code/      # исходные Python-файлы от лектора
   literature/         # статьи/материалы
+docs/
+  playbooks/          # воспроизводимые циклы улучшения bounds и правила экспериментов
+  goals/              # готовые /goal prompts для автономных итераций
 ```
 
 ## Первые правила работы
@@ -49,6 +52,10 @@ references/
 - `notes/13-step11-lkh-multiseed.md` — LKH seeds `1-20`, `RUNS=1`; no improvement over `73934`.
 - `notes/14-step12-lkh-portfolio-plan.md` — bounded LKH portfolio runner plan with ETA/progress/resume.
 - `notes/14-step12-lkh-portfolio.md` — Step 12 smoke portfolio report; runner ready for longer quality-first waves.
+- `docs/playbooks/tsp-lower-bound-improvement.md` — metric-driven lower-bound improvement cycle; current LB target and priority tracks.
+- `docs/playbooks/tsp-experiment-protocol.md` — reproducible experiment/artifact/verification protocol.
+- `docs/playbooks/tsp-result-review-gate.md` — promotion gate before claiming a new best bound.
+- `docs/goals/improve-tsp-lower-bound.goal.md` — ready `/goal` prompt for aggressive-local LB improvement.
 
 ## Текущие bounds
 
