@@ -53,9 +53,11 @@ docs/
 - `notes/14-step12-lkh-portfolio-plan.md` — bounded LKH portfolio runner plan with ETA/progress/resume.
 - `notes/14-step12-lkh-portfolio.md` — Step 12 smoke portfolio report; runner ready for longer quality-first waves.
 - `docs/playbooks/tsp-lower-bound-improvement.md` — metric-driven lower-bound improvement cycle; current LB target and priority tracks.
+- `docs/playbooks/tsp-upper-bound-improvement.md` — metric-driven upper-bound improvement cycle; current UB target and priority tracks.
 - `docs/playbooks/tsp-experiment-protocol.md` — reproducible experiment/artifact/verification protocol.
 - `docs/playbooks/tsp-result-review-gate.md` — promotion gate before claiming a new best bound.
 - `docs/goals/improve-tsp-lower-bound.goal.md` — ready `/goal` prompt for aggressive-local LB improvement.
+- `docs/goals/improve-tsp-upper-bound.goal.md` — ready `/goal` prompt for aggressive-local UB improvement.
 
 ## Текущие bounds
 
