@@ -25,10 +25,12 @@ from src.tsp.tour import tour_length
 CURRENT_LOWER_BOUND = 72711.81768955325
 CURRENT_UPPER_BOUND = 73934
 TSPLIB_PATH = Path("data/processed/M-full-matrix.tsp")
-LOG_PATH = Path("results/runs/step14-concorde-root.log")
-X_PATH = Path("results/runs/step14-concorde-root.x")
-TOUR_PATH = Path("results/runs/step14-concorde-tour.out")
-RUN_ARTIFACT_PATH = Path("results/runs/step14-concorde-no-branch-run.json")
+RUN_DIR = Path("results/runs/step14-concorde-no-branch")
+LOG_PATH = RUN_DIR / "step14-concorde-root.log"
+X_PATH = RUN_DIR / "step14-concorde-root.x"
+TOUR_PATH = RUN_DIR / "step14-concorde-tour.out"
+PROBLEM_STEM = Path("step14-concorde-root-problem")
+RUN_ARTIFACT_PATH = RUN_DIR / "step14-concorde-no-branch-run.json"
 BEST_ARTIFACT_PATH = Path("results/best/step14-concorde-no-branch-lower-bound.json")
 
 
@@ -41,8 +43,9 @@ def parse_args() -> argparse.Namespace:
 
 
 def command_for(concorde: Path, *, seed: int | None) -> list[str]:
+    concorde_path = concorde if concorde.is_absolute() else ROOT / concorde
     command = [
-        str(concorde),
+        str(concorde_path),
         "-B",
     ]
     if seed is not None:
@@ -51,12 +54,12 @@ def command_for(concorde: Path, *, seed: int | None) -> list[str]:
         "-u",
         str(CURRENT_UPPER_BOUND),
         "-n",
-        "results/runs/step14-concorde-root-problem",
+        str(PROBLEM_STEM),
         "-X",
-        str(X_PATH),
+        X_PATH.name,
         "-o",
-        str(TOUR_PATH),
-        str(TSPLIB_PATH),
+        TOUR_PATH.name,
+        str(ROOT / TSPLIB_PATH),
     ])
     return command
 
@@ -123,7 +126,7 @@ def build_payload(*, concorde: Path, command: list[str], runtime_seconds: float 
 
 def main() -> None:
     args = parse_args()
-    concorde = args.concorde
+    concorde = args.concorde if args.concorde.is_absolute() else ROOT / args.concorde
     if not concorde.exists():
         raise SystemExit(f"Concorde binary not found: {concorde}")
 
@@ -135,17 +138,18 @@ def main() -> None:
     if args.export_only:
         return
 
-    (ROOT / LOG_PATH).parent.mkdir(parents=True, exist_ok=True)
+    run_dir = ROOT / RUN_DIR
+    run_dir.mkdir(parents=True, exist_ok=True)
     command = command_for(concorde, seed=args.seed)
     started = perf_counter()
     with (ROOT / LOG_PATH).open("w", encoding="utf-8") as log_file:
         process = subprocess.run(
             command,
-            cwd=ROOT,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
             check=False,
+            cwd=run_dir,
         )
         log_file.write(process.stdout)
     runtime_seconds = perf_counter() - started

@@ -10,3 +10,4 @@ tools/
 data/processed/*.tsp
 data/processed/*.par
 data/processed/*.tour
+/step14-concorde-*

@@ -13,10 +13,10 @@
   "relative_gap_to_upper": 2.576661617119833e-05,
   "integer_lower_bound": 73933,
   "concorde_binary": "tools/concorde-bin/concorde",
-  "command": "tools/concorde-bin/concorde -B -s 10 -u 73934 -n results/runs/step14-concorde-root-problem -X results/runs/step14-concorde-root.x -o results/runs/step14-concorde-tour.out data/processed/M-full-matrix.tsp",
-  "log_path": "results/runs/step14-concorde-root.log",
+  "command": "cd results/runs/step14-concorde-no-branch && ../../../tools/concorde-bin/concorde -B -s 10 -u 73934 -n step14-concorde-root-problem -X step14-concorde-root.x -o step14-concorde-tour.out ../../../data/processed/M-full-matrix.tsp",
+  "log_path": "results/runs/step14-concorde-no-branch/step14-concorde-root.log",
   "generated_files": {
-    "fractional_solution": "results/runs/step14-concorde-root.x",
+    "fractional_solution": "results/runs/step14-concorde-no-branch/step14-concorde-root.x",
     "tour_output": null
   },
   "runtime_seconds": 28.984935540996958,

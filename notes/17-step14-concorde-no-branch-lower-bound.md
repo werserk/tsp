@@ -75,33 +75,34 @@ PYTHONUNBUFFERED=1 python experiments/step14_concorde_no_branch.py \
 The script ran Concorde as:
 
 ```bash
-tools/concorde-bin/concorde \
+cd results/runs/step14-concorde-no-branch
+/home/werserk/3-education/hse/combinatorial-optimization/tsp/tools/concorde-bin/concorde \
   -B \
   -s 10 \
   -u 73934 \
-  -n results/runs/step14-concorde-root-problem \
-  -X results/runs/step14-concorde-root.x \
-  -o results/runs/step14-concorde-tour.out \
-  data/processed/M-full-matrix.tsp
+  -n step14-concorde-root-problem \
+  -X step14-concorde-root.x \
+  -o step14-concorde-tour.out \
+  /home/werserk/3-education/hse/combinatorial-optimization/tsp/data/processed/M-full-matrix.tsp
 ```
 
 Run log:
 
 ```txt
-results/runs/step14-concorde-root.log
+results/runs/step14-concorde-no-branch/step14-concorde-root.log
 ```
 
 Fractional root solution:
 
 ```txt
-results/runs/step14-concorde-root.x
+results/runs/step14-concorde-no-branch/step14-concorde-root.x
 ```
 
-Concorde did not emit `results/runs/step14-concorde-tour.out` in this no-branch run, so there was no solver tour to verify.
+Concorde did not emit `results/runs/step14-concorde-no-branch/step14-concorde-tour.out` in this no-branch run, so there was no solver tour to verify.
 
 ## Parsed Concorde output
 
-From `results/runs/step14-concorde-root.log`:
+From `results/runs/step14-concorde-no-branch/step14-concorde-root.log`:
 
 ```txt
 Final lower bound 73932.094971, upper bound 73934.000000

@@ -218,13 +218,14 @@ Recommended first run is **no branching** with current upper bound. This targets
 ```bash
 cd /home/werserk/3-education/hse/combinatorial-optimization/tsp
 CONCORDE=tools/concorde-bin/concorde  # or tools/concorde-src/concorde/TSP/concorde
-PYTHONUNBUFFERED=1 "$CONCORDE" \
+cd results/runs/step14-concorde-no-branch
+PYTHONUNBUFFERED=1 ../../../tools/concorde-bin/concorde \
   -B \
   -u 73934 \
-  -X results/runs/step14-concorde-root.x \
-  -o results/runs/step14-concorde-tour.out \
-  data/processed/M-full-matrix.tsplib \
-  2>&1 | tee results/runs/step14-concorde-root.log
+  -X step14-concorde-root.x \
+  -o step14-concorde-tour.out \
+  ../../../data/processed/M-full-matrix.tsp \
+  2>&1 | tee step14-concorde-root.log
 ```
 
 Expected output fields to parse:
